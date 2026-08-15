@@ -1,0 +1,323 @@
+{
+  "Title": "Ranked-List Visualization: A Graphical Perception Study",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "scrolled barchart"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "treemap"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "wrapped barchart"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "packed barchart"
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "piled barchart"
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ],
+      "note": "Zvinca plot"
+    }
+  },
+  "Tasks": ["sort", "aggregate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "sort-1": {
+          "rank": ["E-3", ["E-2", "E-1"], ["E-4", "E-5", "E-6"]],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-2"],
+              ["E-3", "E-1"],
+              ["E-3", "E-4"],
+              ["E-3", "E-5"],
+              ["E-3", "E-6"],
+              ["E-2", "E-4"],
+              ["E-2", "E-5"],
+              ["E-2", "E-6"],
+              ["E-1", "E-4"],
+              ["E-1", "E-5"],
+              ["E-1", "E-6"]
+            ],
+            "significance-method": "NHST",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-2": {
+          "rank": [["E-3", "E-1"], "E-2", "E-4", "E-5", "E-6"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-2"],
+              ["E-3", "E-4"],
+              ["E-3", "E-5"],
+              ["E-3", "E-6"],
+              ["E-1", "E-2"],
+              ["E-1", "E-4"],
+              ["E-1", "E-5"],
+              ["E-1", "E-6"],
+              ["E-2", "E-5"],
+              ["E-2", "E-6"],
+              ["E-6", "E-6"]
+            ],
+            "significance-method": "NHST",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": [["E-1", "E-6"], "E-3", "E-5", "E-2", "E-4"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-3"],
+              ["E-1", "E-5"],
+              ["E-1", "E-2"],
+              ["E-1", "E-4"],
+              ["E-6", "E-3"],
+              ["E-6", "E-5"],
+              ["E-6", "E-2"],
+              ["E-6", "E-4"],
+              ["E-3", "E-5"],
+              ["E-3", "E-2"],
+              ["E-3", "E-4"],
+              ["E-5", "E-2"],
+              ["E-5", "E-4"],
+              ["E-2", "E-4"]
+            ],
+            "significance-method": "NHST",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "sort-1": {
+          "rank": [
+            ["E-2", "E-4", "E-5", "E-6"],
+            ["E-3", "E-1"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-3"],
+              ["E-2", "E-1"],
+              ["E-4", "E-3"],
+              ["E-4", "E-1"],
+              ["E-5", "E-3"],
+              ["E-5", "E-1"],
+              ["E-6", "E-3"],
+              ["E-6", "E-1"]
+            ],
+            "significance-method": "NHST",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-2": {
+          "rank": ["E-6", ["E-5", "E-4", "E-3", "E-2"], "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-6", "E-5"],
+              ["E-6", "E-4"],
+              ["E-6", "E-3"],
+              ["E-6", "E-2"],
+              ["E-6", "E-1"],
+              ["E-5", "E-1"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"],
+              ["E-2", "E-1"],
+              ["E-1", "E-1"]
+            ],
+            "significance-method": "NHST",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": ["E-6", ["E-2", "E-4"], ["E-3", "E-5"], "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-6", "E-3"],
+              ["E-6", "E-5"],
+              ["E-6", "E-1"],
+              ["E-2", "E-3"],
+              ["E-2", "E-1"],
+              ["E-4", "E-3"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"],
+              ["E-5", "E-1"]
+            ],
+            "significance-method": "NHST",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

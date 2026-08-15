@@ -1,0 +1,203 @@
+{
+  "Title": "Visual cues in estimation of part-to-whole comparison",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-arc"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "bar with quartile-ticks"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "bar with decile-ticks"
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-arc"
+        }
+      ],
+      "note": "pie with quartile-ticks"
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "bar with scale"
+    }
+  },
+  "Tasks": ["characterize-distribution"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "characterize-distribution-1": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [["E-2", "E-1"]],
+            "significance-method": "bootstrapping",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "characterize-distribution-2": {
+          "rank": ["E-4", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-3"],
+              ["E-4", "E-1"]
+            ],
+            "significance-method": "bootstrapping",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "characterize-distribution-3": {
+          "rank": ["E-5", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "bootstrapping",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "characterize-distribution-4": {
+          "rank": ["E-6", "E-4", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-6", "E-4"],
+              ["E-6", "E-1"],
+              ["E-4", "E-1"]
+            ],
+            "significance-method": "bootstrapping",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

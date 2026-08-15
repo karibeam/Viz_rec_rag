@@ -1,0 +1,70 @@
+{
+  "Title": "Comparing Averages in Time Series Data",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    }
+  },
+  "Tasks": ["aggregate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "aggregate": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [["E-2", "E-1"]],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

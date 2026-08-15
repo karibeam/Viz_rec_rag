@@ -1,0 +1,75 @@
+{
+  "Title": "Ordering Perceptions about Perceptual Order",
+  "Category": "Theory",
+  "Designs": {
+    "T-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "linear"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    }
+  },
+  "Tasks": [],
+  "Results": {
+    "Experimental": {},
+    "Theoretical": {}
+  }
+}

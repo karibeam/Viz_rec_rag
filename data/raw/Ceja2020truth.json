@@ -1,0 +1,87 @@
+{
+  "Title": "Truth or Square: Aspect Ratio Biases Recall of Position Encodings",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "wide aspect ratio"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "square aspect ratio"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "tall aspect ratio"
+    }
+  },
+  "Tasks": ["retrieve-value"],
+  "Results": {
+    "Experimental": {
+      "bias-underestimate": {
+        "retrieve-value": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [["E-2", "E-1"]],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "bias-overestimate": {
+        "retrieve-value": {
+          "rank": ["E-3"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

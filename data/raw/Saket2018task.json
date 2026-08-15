@@ -1,0 +1,1178 @@
+{
+  "Title": "Task-Based Effectiveness of Basic Visualizations",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-8": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-9": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-10": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-arc"
+        }
+      ]
+    },
+    "E-11": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-arc"
+        }
+      ]
+    },
+    "E-12": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-arc"
+        }
+      ]
+    },
+    "E-13": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            }
+          ],
+          "mark": "text"
+        }
+      ]
+    },
+    "E-14": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "text"
+        }
+      ]
+    },
+    "E-15": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "text"
+        }
+      ]
+    }
+  },
+  "Tasks": [
+    "find-anomalies",
+    "cluster",
+    "correlate",
+    "aggregate",
+    "characterize-distribution",
+    "find-extremum",
+    "sort",
+    "retrieve-value",
+    "filter",
+    "determine-range"
+  ],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "find-anomalies": {
+          "rank": [
+            ["E-1", "E-2", "E-3"],
+            ["E-4", "E-5", "E-6"],
+            ["E-7", "E-8", "E-9"],
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.15
+          }
+        },
+        "cluster": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-13", "E-14", "E-15"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-10", "E-13"],
+              ["E-11", "E-14"],
+              ["E-12", "E-15"],
+              ["E-10", "E-1"],
+              ["E-11", "E-2"],
+              ["E-12", "E-3"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.78
+          }
+        },
+        "correlate": {
+          "rank": [
+            ["E-7", "E-8", "E-9"],
+            ["E-1", "E-2", "E-3"],
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-13", "E-14", "E-15"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-7", "E-10"],
+              ["E-8", "E-11"],
+              ["E-9", "E-12"],
+              ["E-7", "E-13"],
+              ["E-8", "E-14"],
+              ["E-9", "E-15"],
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"],
+              ["E-1", "E-13"],
+              ["E-2", "E-14"],
+              ["E-3", "E-15"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.41
+          }
+        },
+        "aggregate": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"],
+              ["E-1", "E-7"],
+              ["E-2", "E-8"],
+              ["E-3", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.49
+          }
+        },
+        "characterize-distribution": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"],
+            ["E-13", "E-14", "E-15"]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum": {
+          "rank": [
+            ["E-1", "E-2", "E-3"],
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-13", "E-14", "E-15"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": null
+          }
+        },
+        "sort": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-13", "E-14", "E-15"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.17
+          }
+        },
+        "retrieve-value": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.32
+          }
+        },
+        "filter": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"],
+            ["E-4", "E-5", "E-6"],
+            ["E-7", "E-8", "E-9"],
+            ["E-1", "E-2", "E-3"]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "determine-range": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-13", "E-14", "E-15"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "find-anomalies": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-10", "E-11", "E-12"],
+            ["E-7", "E-8", "E-9"],
+            ["E-13", "E-14", "E-15"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.27
+          }
+        },
+        "cluster": {
+          "rank": [
+            ["E-10", "E-11", "E-12"],
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-13", "E-14", "E-15"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-10", "E-13"],
+              ["E-11", "E-14"],
+              ["E-12", "E-15"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.29
+          }
+        },
+        "correlate": {
+          "rank": [
+            ["E-7", "E-8", "E-9"],
+            ["E-1", "E-2", "E-3"],
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-7", "E-10"],
+              ["E-8", "E-11"],
+              ["E-9", "E-12"],
+              ["E-7", "E-13"],
+              ["E-8", "E-14"],
+              ["E-9", "E-15"],
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"],
+              ["E-1", "E-13"],
+              ["E-2", "E-14"],
+              ["E-3", "E-15"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.7
+          }
+        },
+        "aggregate": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"],
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-4"],
+              ["E-14", "E-5"],
+              ["E-15", "E-6"],
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.36
+          }
+        },
+        "characterize-distribution": {
+          "rank": [
+            ["E-1", "E-2", "E-3"],
+            ["E-4", "E-5", "E-6"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"],
+            ["E-13", "E-14", "E-15"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"],
+              ["E-1", "E-13"],
+              ["E-2", "E-14"],
+              ["E-3", "E-15"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.25
+          }
+        },
+        "find-extremum": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-7", "E-8", "E-9"],
+            ["E-1", "E-2", "E-3"],
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.38
+          }
+        },
+        "sort": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-7", "E-8", "E-9"],
+            ["E-1", "E-2", "E-3"],
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"],
+              ["E-7", "E-10"],
+              ["E-8", "E-11"],
+              ["E-9", "E-12"],
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.35
+          }
+        },
+        "retrieve-value": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"],
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-10", "E-1"],
+              ["E-11", "E-2"],
+              ["E-12", "E-3"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.26
+          }
+        },
+        "filter": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-1", "E-2", "E-3"],
+            ["E-10", "E-11", "E-12"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"],
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-13", "E-10"],
+              ["E-14", "E-11"],
+              ["E-15", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.72
+          }
+        },
+        "determine-range": {
+          "rank": [
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"],
+            ["E-13", "E-14", "E-15"],
+            ["E-4", "E-5", "E-6"]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "user-preference": {
+        "find-anomalies": {
+          "rank": [
+            ["E-1", "E-2", "E-3"],
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-7"],
+              ["E-2", "E-8"],
+              ["E-3", "E-9"],
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.26
+          }
+        },
+        "cluster": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.64
+          }
+        },
+        "correlate": {
+          "rank": [
+            ["E-7", "E-8", "E-9"],
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-7", "E-1"],
+              ["E-8", "E-2"],
+              ["E-9", "E-3"],
+              ["E-7", "E-13"],
+              ["E-8", "E-14"],
+              ["E-9", "E-15"],
+              ["E-1", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-12"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.44
+          }
+        },
+        "aggregate": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-10", "E-11", "E-12"],
+            ["E-4", "E-5", "E-6"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-10", "E-1"],
+              ["E-11", "E-2"],
+              ["E-12", "E-3"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.67
+          }
+        },
+        "characterize-distribution": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-1", "E-2", "E-3"],
+            ["E-10", "E-11", "E-12"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.41
+          }
+        },
+        "find-extremum": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.61
+          }
+        },
+        "sort": {
+          "rank": [
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-13"],
+              ["E-5", "E-14"],
+              ["E-6", "E-15"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-4", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.52
+          }
+        },
+        "retrieve-value": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-4"],
+              ["E-14", "E-5"],
+              ["E-15", "E-6"],
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-13", "E-10"],
+              ["E-14", "E-11"],
+              ["E-15", "E-12"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.73
+          }
+        },
+        "filter": {
+          "rank": [
+            ["E-13", "E-14", "E-15"],
+            ["E-4", "E-5", "E-6"],
+            ["E-10", "E-11", "E-12"],
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-13", "E-1"],
+              ["E-14", "E-2"],
+              ["E-15", "E-3"],
+              ["E-13", "E-7"],
+              ["E-14", "E-8"],
+              ["E-15", "E-9"],
+              ["E-4", "E-1"],
+              ["E-5", "E-2"],
+              ["E-6", "E-3"],
+              ["E-4", "E-7"],
+              ["E-5", "E-8"],
+              ["E-6", "E-9"],
+              ["E-10", "E-1"],
+              ["E-11", "E-2"],
+              ["E-12", "E-3"],
+              ["E-10", "E-7"],
+              ["E-11", "E-8"],
+              ["E-12", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.44
+          }
+        },
+        "determine-range": {
+          "rank": [
+            ["E-1", "E-2", "E-3"],
+            ["E-7", "E-8", "E-9"],
+            ["E-10", "E-11", "E-12"],
+            ["E-4", "E-5", "E-6"],
+            ["E-13", "E-14", "E-15"]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

@@ -1,0 +1,451 @@
+{
+  "Title": "Task-driven Evaluation of Aggregation in Time Series Visualization",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "max"
+              },
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "min"
+              },
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-trans": {
+                "aggregate": "moving-mean"
+              },
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "box-plot"
+        }
+      ]
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "mean"
+              },
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "max"
+              },
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "mean"
+              },
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "min"
+              },
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {
+                "aggregate": "moving-mean"
+              },
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    }
+  },
+  "Tasks": [
+    "find-extremum",
+    "determine-range",
+    "aggregate",
+    "characterize-distribution",
+    "find-anomalies"
+  ],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "find-extremum-1": {
+          "rank": ["E-4", "E-2", "E-1", "E-3", "E-6", "E-7", "E-5"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-3"],
+              ["E-2", "E-3"],
+              ["E-1", "E-3"],
+              ["E-4", "E-6"],
+              ["E-2", "E-6"],
+              ["E-1", "E-6"],
+              ["E-4", "E-7"],
+              ["E-2", "E-7"],
+              ["E-1", "E-7"],
+              ["E-4", "E-5"],
+              ["E-2", "E-5"],
+              ["E-1", "E-5"],
+              ["E-3", "E-7"],
+              ["E-3", "E-5"],
+              ["E-6", "E-7"],
+              ["E-6", "E-5"]
+            ],
+            "significance-method": "ANCOVA",
+            "significance-threshold": 0.0001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum-2": {
+          "rank": ["E-2", "E-3", "E-4", "E-1", "E-6", "E-7", "E-5"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-1"],
+              ["E-3", "E-1"],
+              ["E-4", "E-1"],
+              ["E-2", "E-6"],
+              ["E-3", "E-6"],
+              ["E-4", "E-6"],
+              ["E-2", "E-7"],
+              ["E-3", "E-7"],
+              ["E-4", "E-7"],
+              ["E-2", "E-5"],
+              ["E-3", "E-5"],
+              ["E-4", "E-5"],
+              ["E-1", "E-7"],
+              ["E-1", "E-5"],
+              ["E-6", "E-7"],
+              ["E-6", "E-5"]
+            ],
+            "significance-method": "ANCOVA",
+            "significance-threshold": 0.0001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "determine-range": {
+          "rank": ["E-2", "E-3", "E-4", "E-1", "E-6", "E-5", "E-7"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-1"],
+              ["E-2", "E-6"],
+              ["E-2", "E-5"],
+              ["E-2", "E-7"],
+              ["E-3", "E-4"],
+              ["E-3", "E-1"],
+              ["E-3", "E-6"],
+              ["E-3", "E-5"],
+              ["E-3", "E-7"],
+              ["E-4", "E-6"],
+              ["E-4", "E-5"],
+              ["E-4", "E-7"],
+              ["E-1", "E-6"],
+              ["E-1", "E-5"],
+              ["E-1", "E-7"],
+              ["E-6", "E-5"],
+              ["E-6", "E-7"]
+            ],
+            "significance-method": "ANCOVA",
+            "significance-threshold": 0.0001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": ["E-4", "E-6", "E-3", "E-5", "E-2", "E-7", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-6"],
+              ["E-4", "E-3"],
+              ["E-4", "E-5"],
+              ["E-4", "E-2"],
+              ["E-4", "E-7"],
+              ["E-4", "E-1"],
+              ["E-6", "E-5"],
+              ["E-6", "E-2"],
+              ["E-6", "E-7"],
+              ["E-6", "E-1"],
+              ["E-3", "E-5"],
+              ["E-3", "E-2"],
+              ["E-3", "E-7"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANCOVA",
+            "significance-threshold": 0.0001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "characterize-distribution": {
+          "rank": ["E-3", "E-5", "E-4", "E-1", "E-7", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-5"],
+              ["E-3", "E-4"],
+              ["E-3", "E-1"],
+              ["E-3", "E-7"],
+              ["E-3", "E-2"],
+              ["E-5", "E-7"],
+              ["E-5", "E-2"]
+            ],
+            "significance-method": "ANCOVA",
+            "significance-threshold": 0.0001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-anomalies": {
+          "rank": ["E-7", "E-1", "E-2", "E-4", "E-5"],
+          "significance": {
+            "pairs": [
+              ["E-7", "E-1"],
+              ["E-7", "E-2"],
+              ["E-7", "E-4"],
+              ["E-7", "E-5"]
+            ],
+            "significance-method": "ANCOVA",
+            "significance-threshold": 0.0001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

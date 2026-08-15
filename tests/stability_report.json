@@ -1,0 +1,304 @@
+{
+  "config": {
+    "runs": 2,
+    "k": 6,
+    "hyde": false,
+    "workers": 1,
+    "limit": 0,
+    "sem_cache": false
+  },
+  "resumo": {
+    "principal_estavel": 13,
+    "total": 18
+  },
+  "analises": [
+    {
+      "pergunta": "Quero comparar as vendas de 5 categorias de produto",
+      "principal_estavel": false,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "Gráfico de barras",
+        "gráfico de barras por comprimento"
+      ],
+      "criterios": [
+        "significancia",
+        "similaridade"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Como mostrar a evolução da temperatura ao longo de 12 meses?",
+      "principal_estavel": false,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "Gráfico de linha combinado com barras de média",
+        "gráfico de linhas combinado com barras de média"
+      ],
+      "criterios": [
+        "tarefa",
+        "sem conflito"
+      ],
+      "conflitos": 1,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Preciso ver se há relação entre horas de estudo e nota da prova",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "gráfico de dispersão",
+        "Gráfico de dispersão"
+      ],
+      "criterios": [
+        "sem conflito",
+        "sem conflito"
+      ],
+      "conflitos": 0,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Qual gráfico usar para mostrar a participação de cada região no total?",
+      "principal_estavel": true,
+      "alternativa_estavel": false,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "Gráfico de pizza",
+        "Gráfico de pizza"
+      ],
+      "criterios": [
+        "tarefa",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.33
+    },
+    {
+      "pergunta": "Quero identificar valores fora do padrão numa lista de preços",
+      "principal_estavel": false,
+      "alternativa_estavel": false,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "gráfico de dispersão",
+        "gráfico de linhas verticais categorizadas"
+      ],
+      "criterios": [
+        "n_alternativas",
+        "similaridade"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.5
+    },
+    {
+      "pergunta": "Tenho 3 lojas e 12 meses de faturamento, como mostro tudo junto?",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "Gráfico de área empilhada em painéis",
+        "Gráfico de área empilhada em painéis"
+      ],
+      "criterios": [
+        "tarefa",
+        "similaridade"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Como comparar duas fatias de um gráfico de pizza?",
+      "principal_estavel": true,
+      "alternativa_estavel": false,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "Gráfico de barras",
+        "Gráfico de barras"
+      ],
+      "criterios": [
+        "tarefa",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.6
+    },
+    {
+      "pergunta": "Quero mostrar a distribuição das idades dos meus clientes",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "Gráfico de dispersão",
+        "gráfico de dispersão"
+      ],
+      "criterios": [
+        "tarefa",
+        "significancia"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.67
+    },
+    {
+      "pergunta": "Preciso destacar qual vendedor teve o maior resultado",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "Gráfico de barras",
+        "Gráfico de barras"
+      ],
+      "criterios": [
+        "similaridade",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.75
+    },
+    {
+      "pergunta": "Como mostro a média de vendas por trimestre?",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "gráfico de linha combinado com barras de média",
+        "gráfico de linha combinado com barras de média"
+      ],
+      "criterios": [
+        "n_alternativas",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Tenho dados de temperatura por hora e por dia da semana",
+      "principal_estavel": true,
+      "alternativa_estavel": false,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "Gráfico de linha combinado com barras de média",
+        "Gráfico de linha combinado com barras de média"
+      ],
+      "criterios": [
+        "tarefa",
+        "sem conflito"
+      ],
+      "conflitos": 1,
+      "sobreposicao_fontes": 0.67
+    },
+    {
+      "pergunta": "Quero comparar o desempenho de 20 produtos diferentes",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "gráfico de diferenças",
+        "gráfico de diferenças"
+      ],
+      "criterios": [
+        "tarefa",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.75
+    },
+    {
+      "pergunta": "Como agrupo clientes parecidos visualmente?",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "Gráfico de dispersão",
+        "gráfico de dispersão"
+      ],
+      "criterios": [
+        "tarefa",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 0.5
+    },
+    {
+      "pergunta": "Qual a melhor forma de mostrar percentuais que somam 100%?",
+      "principal_estavel": false,
+      "alternativa_estavel": false,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "Gráfico de pizza",
+        "Gráfico de barras com comprimento proporcional"
+      ],
+      "criterios": [
+        "tarefa",
+        "tarefa"
+      ],
+      "conflitos": 2,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Preciso ler o valor exato de cada mês no gráfico",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "gráfico de barras tradicional",
+        "gráfico de barras tradicional"
+      ],
+      "criterios": [
+        "tarefa",
+        "sem conflito"
+      ],
+      "conflitos": 1,
+      "sobreposicao_fontes": 0.5
+    },
+    {
+      "pergunta": "Como faço um mapa coroplético do Brasil por estado?",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "cartograma contínuo",
+        "cartograma contínuo"
+      ],
+      "criterios": [
+        "sem conflito",
+        "sem conflito"
+      ],
+      "conflitos": 0,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Qual biblioteca JavaScript devo usar para meus gráficos?",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "Não se aplica",
+        "Não se aplica"
+      ],
+      "criterios": [
+        "sem conflito",
+        "sem conflito"
+      ],
+      "conflitos": 0,
+      "sobreposicao_fontes": 0.0
+    },
+    {
+      "pergunta": "Como mostro uma rede de conexões entre pessoas?",
+      "principal_estavel": false,
+      "alternativa_estavel": false,
+      "fontes_estaveis": false,
+      "principais_vistos": [
+        "gráfico de dispersão",
+        ""
+      ],
+      "criterios": [
+        "sem conflito",
+        "sem conflito"
+      ],
+      "conflitos": 0,
+      "sobreposicao_fontes": 0.0
+    }
+  ]
+}

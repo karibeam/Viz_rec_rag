@@ -1,0 +1,19 @@
+python-dotenv>=1.0
+langchain>=0.3
+langchain-core>=0.3
+langchain-chroma>=0.2
+chromadb>=0.5
+
+# Provedor Gemini (padrao)
+langchain-google-genai>=2.0
+
+# Provedor OpenAI (alternativa)
+langchain-openai>=0.2
+
+# Validacao de spec Vega-Lite (schema embutido, funciona offline)
+altair>=5.4
+jsonschema>=4.20
+
+# Interface
+streamlit>=1.38
+pandas>=2.0

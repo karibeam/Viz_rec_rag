@@ -1,0 +1,43 @@
+{
+  "Title": "Scatterplots: Tasks, Data, and Designs",
+  "Category": "Theory",
+  "Designs": {
+    "T-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    }
+  },
+  "Tasks": [
+    "sort",
+    "filter",
+    "retrieve-value",
+    "characterize-distribution",
+    "find-anomalies",
+    "correlate",
+    "cluster",
+    "aggregate"
+  ],
+  "Results": {
+    "Experimental": {},
+    "Theoretical": {}
+  }
+}

@@ -1,0 +1,119 @@
+"""Interface Streamlit do MVP.
+
+    streamlit run app.py
+"""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
+
+import streamlit as st
+
+import config
+from recommend import recomendar
+from retrieve import Retriever
+
+st.set_page_config(page_title="Recomendador de Visualizacoes", page_icon="📊", layout="wide")
+
+EXEMPLOS = [
+    "Quero comparar as vendas de 5 categorias de produto",
+    "Como mostrar a evolucao da temperatura ao longo de 12 meses?",
+    "Preciso ver se ha relacao entre horas de estudo e nota da prova",
+    "Qual grafico usa para mostrar a participacao de cada regiao no total?",
+    "Quero identificar os valores fora do padrao numa lista de precos",
+]
+
+
+@st.cache_resource(show_spinner=False)
+def get_retriever(k: int, use_hyde: bool):
+    return Retriever(k=k, use_hyde=use_hyde)
+
+
+def render_opcao(rotulo: str, opc: dict, cor: str):
+    if not opc:
+        st.warning(f"{rotulo}: nao gerada.")
+        return
+    st.markdown(f"### :{cor}[{rotulo}] — {opc['grafico']}")
+    st.write(opc["justificativa"])
+
+    spec = opc.get("vegalite_spec")
+    if opc.get("spec_valida") and isinstance(spec, dict) and spec.get("data", {}).get("values"):
+        st.vega_lite_chart(spec, use_container_width=True)
+    else:
+        motivo = "; ".join(opc.get("spec_erros") or ["spec sem dados de exemplo"])
+        st.warning(f"Nao foi possivel renderizar o grafico ({motivo}).")
+
+    if opc.get("fontes"):
+        st.caption("Fontes: " + " · ".join(opc["fontes"]))
+    if opc.get("spec_reparos"):
+        st.caption("Tipos preenchidos automaticamente: " + ", ".join(opc["spec_reparos"]))
+    with st.expander("Ver spec Vega-Lite"):
+        st.json(spec)
+
+
+st.title("📊 Recomendador de Visualizacoes")
+st.caption(
+    "Descreva sua analise em linguagem do dia a dia. A recomendacao vem de estudos "
+    "empiricos de percepcao grafica recuperados por RAG — nao de regras fixas."
+)
+
+with st.sidebar:
+    st.subheader("Configuracao")
+    st.text(f"provedor: {config.provider()}")
+    k = st.slider("Trechos recuperados (k)", 3, 12, 6)
+    use_hyde = st.checkbox(
+        "Usar HyDE", value=False,
+        help="Expande a pergunta antes de buscar. Medido: reduz a estabilidade de 89% para ~50% e dobra o consumo de cota."
+    )
+    indexado = config.CHROMA_DIR.exists()
+    st.success("Indice encontrado") if indexado else st.error(
+        "Indice ausente. Rode: python src/enrich.py && python src/build_index.py"
+    )
+    st.divider()
+    st.caption("Exemplos")
+    for ex in EXEMPLOS:
+        if st.button(ex, use_container_width=True):
+            st.session_state["pergunta"] = ex
+
+pergunta = st.text_area(
+    "Sua pergunta",
+    value=st.session_state.get("pergunta", ""),
+    placeholder="Ex: quero comparar o faturamento de 5 lojas no ultimo trimestre",
+    height=90,
+)
+
+if st.button("Recomendar", type="primary", disabled=not pergunta.strip()):
+    try:
+        with st.spinner("Buscando na base e montando a recomendacao..."):
+            res = recomendar(pergunta.strip(), k=k, retriever=get_retriever(k, use_hyde))
+    except Exception as exc:
+        st.error(f"{type(exc).__name__}: {exc}")
+    else:
+        if res.get("erro"):
+            st.error(res["erro"])
+        else:
+            if res.get("ressalva"):
+                st.info(f"⚠️ {res['ressalva']}")
+            if res.get("conflito"):
+                st.warning(
+                    f"**Os estudos divergiram.** {res['conflito']}\n\n"
+                    f"Critério que decidiu: `{res.get('criterio_desempate') or 'não informado'}`"
+                )
+
+            col1, col2 = st.columns(2)
+            with col1:
+                render_opcao("PRINCIPAL", res.get("principal"), "green")
+            with col2:
+                render_opcao("ALTERNATIVA", res.get("alternativa"), "orange")
+
+            st.divider()
+            with st.expander(f"Trechos recuperados da base ({len(res['trechos'])})"):
+                for t in res["trechos"]:
+                    st.markdown(
+                        f"**[{t['n']}]** `{t['fonte']}` — similaridade **{t['similaridade']:.3f}**"
+                    )
+                    st.text(t["texto"])
+                    st.divider()
+            with st.expander("Resposta completa (JSON)"):
+                st.json(res)

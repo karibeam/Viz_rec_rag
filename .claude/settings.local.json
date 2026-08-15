@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://api.github.com/repos/Zehua-Zeng/graphical-perception-knowledge/contents/\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Zehua-Zeng/graphical-perception-knowledge/main/README.md\")",
+      "Bash(curl -s \"https://api.github.com/repos/Zehua-Zeng/graphical-perception-knowledge/contents/JSON%20files\")",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

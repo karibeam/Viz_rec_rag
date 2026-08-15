@@ -1,0 +1,522 @@
+{
+  "Title": "Perception of Average Value in Multiclass Scatterplots",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-triangleUp"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 75
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 75
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle"
+        }
+      ]
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 3
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle"
+        }
+      ]
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "shape",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle-triangleUp"
+        }
+      ]
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle-triangleUp"
+        }
+      ]
+    },
+    "E-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-triangleUp-triangleDown"
+        }
+      ]
+    },
+    "E-8": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 3
+              },
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle-triangleUp"
+        }
+      ]
+    },
+    "E-9": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle"
+        }
+      ]
+    },
+    "E-10": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "shape",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle-triangleUp"
+        }
+      ]
+    },
+    "E-11": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {
+                "cardinality": 50
+              },
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {
+                "cardinality": 2
+              },
+              "data-trans": {},
+              "channel": "shape",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point-circle-triangleUp"
+        }
+      ],
+      "note": "color as conflicting cue"
+    }
+  },
+  "Tasks": ["aggregate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "aggregate-1": {
+          "rank": [
+            ["E-1", "E-2", "E-3", "E-4", "E-5", "E-6", "E-7", "E-8", "E-9"],
+            ["E-10", "E-11"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-10"],
+              ["E-1", "E-11"],
+              ["E-2", "E-10"],
+              ["E-2", "E-11"],
+              ["E-3", "E-10"],
+              ["E-3", "E-11"],
+              ["E-4", "E-10"],
+              ["E-4", "E-11"],
+              ["E-5", "E-10"],
+              ["E-5", "E-11"],
+              ["E-6", "E-10"],
+              ["E-6", "E-11"],
+              ["E-7", "E-10"],
+              ["E-7", "E-11"],
+              ["E-8", "E-10"],
+              ["E-8", "E-11"],
+              ["E-9", "E-10"],
+              ["E-9", "E-11"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-2": {
+          "rank": ["E-1", "E-8"],
+          "significance": {
+            "pairs": [["E-1", "E-8"]],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.03,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-3": {
+          "rank": ["E-6", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-4": {
+          "rank": ["E-10", "E-11"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-5": {
+          "rank": ["E-3", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-6": {
+          "rank": ["E-4", "E-8"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-7": {
+          "rank": ["E-1", "E-4"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate-8": {
+          "rank": ["E-1", "E-5"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

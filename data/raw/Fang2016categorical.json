@@ -1,0 +1,27 @@
+{
+  "Title": "Categorical Colormap Optimization with Visualization Case Studies",
+  "Category": "Hybrid",
+  "Designs": {
+    "T-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    }
+  },
+  "Tasks": [],
+  "Results": {
+    "Experimental": {},
+    "Theoretical": {}
+  }
+}

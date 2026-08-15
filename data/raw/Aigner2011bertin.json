@@ -1,0 +1,143 @@
+{
+  "Title": "Bertin was Right: An Empirical Evaluation of Indexing to Compare Multivariate Time-Series Data Using Line Plots",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "row",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "log"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    }
+  },
+  "Tasks": ["correlate", "aggregate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "correlate": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "Wilcoxon signed-rank test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "Friedman test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "overall": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "Wilcoxon signed-rank test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "correlate": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [["E-2", "E-1"]],
+            "significance-method": "paired t-test",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [["E-2", "E-1"]],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "overall": {
+          "rank": ["E-2", "E-1"],
+          "significance": {
+            "pairs": [["E-2", "E-1"]],
+            "significance-method": "paired t-test",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "Title": "The Impact of Distribution and Chart Type on Part-to-Whole Comparisons",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-arc"
+        }
+      ],
+      "note": "pie chart"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "circular slices"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "straight line circular"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    }
+  },
+  "Tasks": ["sort"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "sort": {
+          "rank": [["E-4", "E-3", "E-2"], "E-1", "E-5"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-1"],
+              ["E-1", "E-5"]
+            ],
+            "significance-method": "t-test",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "sort": {
+          "rank": [
+            ["E-2", "E-3"],
+            ["E-4", "E-5", "E-1"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-5"],
+              ["E-2", "E-1"],
+              ["E-3", "E-4"],
+              ["E-3", "E-5"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

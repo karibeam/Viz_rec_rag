@@ -1,0 +1,27 @@
+{
+  "Title": "Colorgorical: Creating discriminable and preferable color palettes for information visualization",
+  "Category": "Hybrid",
+  "Designs": {
+    "T-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    }
+  },
+  "Tasks": ["aggregate"],
+  "Results": {
+    "Experimental": {},
+    "Theoretical": {}
+  }
+}

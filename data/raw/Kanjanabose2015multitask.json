@@ -1,0 +1,191 @@
+{
+  "Title": "A Multi-task Comparative Study on Scatter Plots and Parallel Coordinates Plots",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "shape",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "text"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    }
+  },
+  "Tasks": ["retrieve-value", "cluster", "find-anomalies", "correlate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "retrieve-value": {
+          "rank": [["E-1", "E-2", "E-3"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "cluster": {
+          "rank": ["E-3", "E-1", "E-2"],
+          "significance": [
+            ["E-3", "E-1"],
+            ["E-3", "E-2"],
+            ["E-1", "E-2"]
+          ]
+        },
+        "find-anomalies": {
+          "rank": ["E-3", "E-1", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-1"],
+              ["E-3", "E-2"],
+              ["E-1", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "correlate": {
+          "rank": ["E-3", ["E-1", "E-2"]],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-1"],
+              ["E-3", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "retrieve value": {
+          "rank": ["E-2", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-3"],
+              ["E-2", "E-1"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "cluster": {
+          "rank": [["E-1", "E-3"], "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-2"],
+              ["E-3", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-anomalies": {
+          "rank": [["E-3", "E-1"], "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-2"],
+              ["E-3", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "correlate": {
+          "rank": ["E-3", "E-1", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-1"],
+              ["E-3", "E-2"],
+              ["E-1", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.01,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

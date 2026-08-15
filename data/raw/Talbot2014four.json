@@ -1,0 +1,34 @@
+{
+  "Title": "Four Experiments on the Perception of Bar Charts",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    }
+  },
+  "Tasks": ["sort"],
+  "Results": {
+    "Experimental": {},
+    "Theoretical": {}
+  }
+}

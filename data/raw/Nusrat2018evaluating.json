@@ -1,0 +1,318 @@
+{
+  "Title": "Evaluating Cartogram Effectiveness",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "ordinal-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "contiguous cartogram"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "ordinal-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "rectangular cartogram"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "ordinal-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "non-contiguous cartogram"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "ordinal-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-circle"
+        }
+      ],
+      "note": "dorling cartogram"
+    }
+  },
+  "Tasks": ["sort", "correlate", "filter", "aggregate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "filter-1": {
+          "rank": ["E-1", "E-3", "E-4", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-3"],
+              ["E-1", "E-4"],
+              ["E-1", "E-2"],
+              ["E-3", "E-4"],
+              ["E-3", "E-2"],
+              ["E-4", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "filter-2": {
+          "rank": ["E-3", "E-1"],
+          "significance": {
+            "pairs": [["E-3", "E-1"]],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-1": {
+          "rank": [["E-1", "E-3", "E-4"], "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-2"],
+              ["E-3", "E-2"],
+              ["E-4", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-2": {
+          "rank": ["E-1", "E-3", "E-4", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-3"],
+              ["E-1", "E-4"],
+              ["E-1", "E-2"],
+              ["E-3", "E-4"],
+              ["E-3", "E-2"],
+              ["E-4", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "correlate": {
+          "rank": ["E-1", "E-4", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-4"],
+              ["E-1", "E-2"],
+              ["E-4", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "filter-3": {
+          "rank": ["E-2", "E-1", "E-4", "E-3"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-3"],
+              ["E-2", "E-3"],
+              ["E-2", "E-4"],
+              ["E-4", "E-3"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": ["E-4", "E-3", "E-1", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-2"],
+              ["E-4", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "filter-1": {
+          "rank": ["E-3", "E-1", "E-4", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-2"],
+              ["E-3", "E-4"],
+              ["E-1", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "filter-2": {
+          "rank": [["E-1", "E-3"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-1": {
+          "rank": [["E-1", "E-3", "E-4"], "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-2"],
+              ["E-3", "E-2"],
+              ["E-4", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.005,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-2": {
+          "rank": [["E-1", "E-2", "E-3", "E-4"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "correlate": {
+          "rank": [["E-1", "E-2", "E-4"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "filter-3": {
+          "rank": [["E-1", "E-2", "E-3", "E-4"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": [["E-1", "E-2", "E-3", "E-4"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

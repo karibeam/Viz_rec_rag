@@ -1,0 +1,229 @@
+{
+  "Title": "Comparison of Radial and Linear charts for Visualizing Daily Patterns",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "column",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "row",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ]
+    }
+  },
+  "Tasks": ["filter", "retrieve-value", "find-extremum", "sort"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "filter": {
+          "rank": ["E-3", "E-4", "E-2", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "retrieve-value": {
+          "rank": ["E-4", "E-3", "E-2", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum": {
+          "rank": [["E-2", "E-4"], "E-3", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort": {
+          "rank": ["E-4", "E-2", "E-3", "E-1"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "filter": {
+          "rank": ["E-4", "E-3", "E-1", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-2"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.259
+          }
+        },
+        "retrieve-value": {
+          "rank": ["E-4", "E-3", "E-2", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-2"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.254
+          }
+        },
+        "find-extremum": {
+          "rank": ["E-4", "E-2", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-2"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.087
+          }
+        },
+        "sort": {
+          "rank": ["E-4", "E-3", "E-1", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-2"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.126
+          }
+        }
+      },
+      "user-preference": {
+        "overall": {
+          "rank": ["E-4", "E-3", "E-2", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-4", "E-2"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.488
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

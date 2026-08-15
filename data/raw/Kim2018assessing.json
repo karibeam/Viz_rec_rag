@@ -1,0 +1,915 @@
+{
+  "Title": "Assessing Effects of Task and Data Distribution on the Effectiveness of Visual Encodings",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-circle"
+        }
+      ]
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-circle"
+        }
+      ]
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-circle"
+        }
+      ]
+    },
+    "E-8": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-circle"
+        }
+      ]
+    },
+    "E-9": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-10": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-11": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "row",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-12": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "row",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    }
+  },
+  "Tasks": ["retrieve-value", "sort", "find-extremum", "aggregate"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "retrieve-value": {
+          "rank": [
+            ["E-2", "E-1", "E-6", "E-5", "E-3", "E-12", "E-11"],
+            "E-4",
+            ["E-7", "E-8", "E-9", "E-10"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-7"],
+              ["E-2", "E-8"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-4"],
+              ["E-1", "E-7"],
+              ["E-1", "E-8"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-6", "E-4"],
+              ["E-6", "E-7"],
+              ["E-6", "E-8"],
+              ["E-6", "E-9"],
+              ["E-6", "E-10"],
+              ["E-5", "E-4"],
+              ["E-5", "E-7"],
+              ["E-5", "E-8"],
+              ["E-5", "E-9"],
+              ["E-5", "E-10"],
+              ["E-3", "E-4"],
+              ["E-3", "E-7"],
+              ["E-3", "E-8"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"],
+              ["E-12", "E-4"],
+              ["E-12", "E-7"],
+              ["E-12", "E-8"],
+              ["E-12", "E-9"],
+              ["E-12", "E-10"],
+              ["E-11", "E-4"],
+              ["E-11", "E-7"],
+              ["E-11", "E-8"],
+              ["E-11", "E-9"],
+              ["E-11", "E-10"],
+              ["E-4", "E-7"],
+              ["E-4", "E-8"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"]
+            ],
+            "significance-method": "logistic mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort": {
+          "rank": [
+            ["E-2", "E-1", "E-6", "E-5", "E-3", "E-4", "E-11", "E-12"],
+            ["E-7", "E-8"],
+            ["E-9", "E-10"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-7"],
+              ["E-2", "E-8"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-7"],
+              ["E-1", "E-8"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-6", "E-7"],
+              ["E-6", "E-8"],
+              ["E-6", "E-9"],
+              ["E-6", "E-10"],
+              ["E-5", "E-7"],
+              ["E-5", "E-8"],
+              ["E-5", "E-9"],
+              ["E-5", "E-10"],
+              ["E-3", "E-7"],
+              ["E-3", "E-8"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"],
+              ["E-4", "E-7"],
+              ["E-4", "E-8"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"],
+              ["E-11", "E-7"],
+              ["E-11", "E-8"],
+              ["E-11", "E-9"],
+              ["E-11", "E-10"],
+              ["E-12", "E-7"],
+              ["E-12", "E-8"],
+              ["E-12", "E-9"],
+              ["E-12", "E-10"],
+              ["E-7", "E-9"],
+              ["E-7", "E-10"],
+              ["E-8", "E-9"],
+              ["E-8", "E-10"]
+            ],
+            "significance-method": "logistic mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum": {
+          "rank": [
+            ["E-2", "E-1", "E-3", "E-4", "E-7", "E-8", "E-11"],
+            "E-12",
+            ["E-6", "E-5", "E-9"],
+            "E-10"
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-12"],
+              ["E-2", "E-6"],
+              ["E-2", "E-5"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-12"],
+              ["E-1", "E-6"],
+              ["E-1", "E-5"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-3", "E-12"],
+              ["E-3", "E-6"],
+              ["E-3", "E-5"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"],
+              ["E-4", "E-12"],
+              ["E-4", "E-6"],
+              ["E-4", "E-5"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"],
+              ["E-7", "E-12"],
+              ["E-7", "E-6"],
+              ["E-7", "E-5"],
+              ["E-7", "E-9"],
+              ["E-7", "E-10"],
+              ["E-8", "E-12"],
+              ["E-8", "E-6"],
+              ["E-8", "E-5"],
+              ["E-8", "E-9"],
+              ["E-8", "E-10"],
+              ["E-11", "E-12"],
+              ["E-11", "E-6"],
+              ["E-11", "E-5"],
+              ["E-11", "E-9"],
+              ["E-11", "E-10"],
+              ["E-12", "E-6"],
+              ["E-12", "E-5"],
+              ["E-12", "E-9"],
+              ["E-12", "E-10"],
+              ["E-6", "E-10"],
+              ["E-5", "E-10"],
+              ["E-9", "E-10"]
+            ],
+            "significance-method": "logistic mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": [
+            [
+              "E-2",
+              "E-1",
+              "E-3",
+              "E-4",
+              "E-7",
+              "E-8",
+              "E-11",
+              "E-12",
+              "E-9",
+              "E-10"
+            ],
+            ["E-6", "E-5"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-6"],
+              ["E-2", "E-5"],
+              ["E-1", "E-6"],
+              ["E-1", "E-5"],
+              ["E-3", "E-6"],
+              ["E-3", "E-5"],
+              ["E-4", "E-6"],
+              ["E-4", "E-5"],
+              ["E-7", "E-6"],
+              ["E-7", "E-5"],
+              ["E-8", "E-6"],
+              ["E-8", "E-5"],
+              ["E-11", "E-6"],
+              ["E-11", "E-5"],
+              ["E-12", "E-6"],
+              ["E-12", "E-5"],
+              ["E-9", "E-6"],
+              ["E-9", "E-5"],
+              ["E-10", "E-6"],
+              ["E-10", "E-5"]
+            ],
+            "significance-method": "logistic mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "overall": {
+          "rank": [
+            "E-2",
+            ["E-1", "E-4", "E-3", "E-11"],
+            "E-12",
+            ["E-6", "E-5"],
+            ["E-7", "E-8"],
+            "E-9",
+            "E-10"
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-1"],
+              ["E-2", "E-4"],
+              ["E-2", "E-3"],
+              ["E-2", "E-11"],
+              ["E-2", "E-12"],
+              ["E-2", "E-6"],
+              ["E-2", "E-5"],
+              ["E-2", "E-7"],
+              ["E-2", "E-8"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-12"],
+              ["E-1", "E-6"],
+              ["E-1", "E-5"],
+              ["E-1", "E-7"],
+              ["E-1", "E-8"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-4", "E-12"],
+              ["E-4", "E-6"],
+              ["E-4", "E-5"],
+              ["E-4", "E-7"],
+              ["E-4", "E-8"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"],
+              ["E-3", "E-12"],
+              ["E-3", "E-6"],
+              ["E-3", "E-5"],
+              ["E-3", "E-7"],
+              ["E-3", "E-8"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"],
+              ["E-11", "E-12"],
+              ["E-11", "E-6"],
+              ["E-11", "E-5"],
+              ["E-11", "E-7"],
+              ["E-11", "E-8"],
+              ["E-11", "E-9"],
+              ["E-11", "E-10"],
+              ["E-12", "E-6"],
+              ["E-12", "E-5"],
+              ["E-12", "E-7"],
+              ["E-12", "E-8"],
+              ["E-12", "E-9"],
+              ["E-12", "E-10"],
+              ["E-6", "E-7"],
+              ["E-6", "E-8"],
+              ["E-6", "E-9"],
+              ["E-6", "E-10"],
+              ["E-5", "E-7"],
+              ["E-5", "E-8"],
+              ["E-5", "E-9"],
+              ["E-5", "E-10"],
+              ["E-7", "E-9"],
+              ["E-7", "E-10"],
+              ["E-8", "E-9"],
+              ["E-8", "E-10"],
+              ["E-9", "E-10"]
+            ],
+            "significance-method": "logistic mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "retrieve-value": {
+          "rank": [
+            ["E-2", "E-1", "E-6", "E-5"],
+            "E-3",
+            "E-12",
+            ["E-11", "E-4", "E-7", "E-8", "E-9", "E-10"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-3"],
+              ["E-2", "E-12"],
+              ["E-2", "E-11"],
+              ["E-2", "E-4"],
+              ["E-2", "E-7"],
+              ["E-2", "E-8"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-3"],
+              ["E-1", "E-12"],
+              ["E-1", "E-11"],
+              ["E-1", "E-4"],
+              ["E-1", "E-7"],
+              ["E-1", "E-8"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-6", "E-3"],
+              ["E-6", "E-12"],
+              ["E-6", "E-11"],
+              ["E-6", "E-4"],
+              ["E-6", "E-7"],
+              ["E-6", "E-8"],
+              ["E-6", "E-9"],
+              ["E-6", "E-10"],
+              ["E-5", "E-3"],
+              ["E-5", "E-12"],
+              ["E-5", "E-11"],
+              ["E-5", "E-4"],
+              ["E-5", "E-7"],
+              ["E-5", "E-8"],
+              ["E-5", "E-9"],
+              ["E-5", "E-10"],
+              ["E-3", "E-12"],
+              ["E-3", "E-11"],
+              ["E-3", "E-4"],
+              ["E-3", "E-7"],
+              ["E-3", "E-8"],
+              ["E-3", "E-9"],
+              ["E-12", "E-10"],
+              ["E-12", "E-11"],
+              ["E-12", "E-4"],
+              ["E-12", "E-7"],
+              ["E-12", "E-8"],
+              ["E-12", "E-9"],
+              ["E-12", "E-10"]
+            ],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort": {
+          "rank": [
+            ["E-2", "E-1", "E-6", "E-5"],
+            ["E-3", "E-4"],
+            "E-11",
+            ["E-12", "E-7", "E-8", "E-9", "E-10"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-3"],
+              ["E-2", "E-4"],
+              ["E-2", "E-11"],
+              ["E-2", "E-12"],
+              ["E-2", "E-7"],
+              ["E-2", "E-8"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-3"],
+              ["E-1", "E-4"],
+              ["E-1", "E-11"],
+              ["E-1", "E-12"],
+              ["E-1", "E-7"],
+              ["E-1", "E-8"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-6", "E-3"],
+              ["E-6", "E-4"],
+              ["E-6", "E-11"],
+              ["E-6", "E-12"],
+              ["E-6", "E-7"],
+              ["E-6", "E-8"],
+              ["E-6", "E-9"],
+              ["E-6", "E-10"],
+              ["E-5", "E-3"],
+              ["E-5", "E-4"],
+              ["E-5", "E-11"],
+              ["E-5", "E-12"],
+              ["E-5", "E-7"],
+              ["E-5", "E-8"],
+              ["E-5", "E-9"],
+              ["E-5", "E-10"],
+              ["E-3", "E-11"],
+              ["E-3", "E-12"],
+              ["E-3", "E-7"],
+              ["E-3", "E-8"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"],
+              ["E-4", "E-11"],
+              ["E-4", "E-12"],
+              ["E-4", "E-7"],
+              ["E-4", "E-8"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"],
+              ["E-11", "E-12"],
+              ["E-11", "E-7"],
+              ["E-11", "E-8"],
+              ["E-11", "E-9"],
+              ["E-11", "E-10"]
+            ],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum": {
+          "rank": [
+            ["E-2", "E-1", "E-3", "E-4", "E-7", "E-8"],
+            ["E-11", "E-12", "E-6", "E-5", "E-9", "E-10"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-11"],
+              ["E-2", "E-12"],
+              ["E-2", "E-6"],
+              ["E-2", "E-5"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-11"],
+              ["E-1", "E-12"],
+              ["E-1", "E-6"],
+              ["E-1", "E-5"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-3", "E-11"],
+              ["E-3", "E-12"],
+              ["E-3", "E-6"],
+              ["E-3", "E-5"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"],
+              ["E-4", "E-11"],
+              ["E-4", "E-12"],
+              ["E-4", "E-6"],
+              ["E-4", "E-5"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"],
+              ["E-7", "E-11"],
+              ["E-7", "E-12"],
+              ["E-7", "E-6"],
+              ["E-7", "E-5"],
+              ["E-7", "E-9"],
+              ["E-7", "E-10"],
+              ["E-8", "E-11"],
+              ["E-8", "E-12"],
+              ["E-8", "E-6"],
+              ["E-8", "E-5"],
+              ["E-8", "E-9"],
+              ["E-8", "E-10"]
+            ],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "aggregate": {
+          "rank": [
+            [
+              [
+                "E-2",
+                "E-1",
+                "E-3",
+                "E-4",
+                "E-7",
+                "E-8",
+                "E-11",
+                "E-12",
+                "E-9",
+                "E-10",
+                "E-6",
+                "E-5"
+              ]
+            ]
+          ],
+          "significance": {
+            "pairs": [],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "overall": {
+          "rank": [
+            ["E-2", "E-1"],
+            ["E-4", "E-3"],
+            ["E-11", "E-12", "E-6", "E-5", "E-7", "E-8", "E-9", "E-10"]
+          ],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-3"],
+              ["E-2", "E-11"],
+              ["E-2", "E-12"],
+              ["E-2", "E-6"],
+              ["E-2", "E-5"],
+              ["E-2", "E-7"],
+              ["E-2", "E-8"],
+              ["E-2", "E-9"],
+              ["E-2", "E-10"],
+              ["E-1", "E-4"],
+              ["E-1", "E-3"],
+              ["E-1", "E-11"],
+              ["E-1", "E-12"],
+              ["E-1", "E-6"],
+              ["E-1", "E-5"],
+              ["E-1", "E-7"],
+              ["E-1", "E-8"],
+              ["E-1", "E-9"],
+              ["E-1", "E-10"],
+              ["E-4", "E-11"],
+              ["E-4", "E-12"],
+              ["E-4", "E-6"],
+              ["E-4", "E-5"],
+              ["E-4", "E-7"],
+              ["E-4", "E-8"],
+              ["E-4", "E-9"],
+              ["E-4", "E-10"],
+              ["E-3", "E-11"],
+              ["E-3", "E-12"],
+              ["E-3", "E-6"],
+              ["E-3", "E-5"],
+              ["E-3", "E-7"],
+              ["E-3", "E-8"],
+              ["E-3", "E-9"],
+              ["E-3", "E-10"]
+            ],
+            "significance-method": "linear mixed effect",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

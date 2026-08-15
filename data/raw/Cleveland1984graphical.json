@@ -1,0 +1,304 @@
+{
+  "Title": "Graphical Perception: Theory, Experimentation, and Application to the Development of Graphical Methods",
+  "Category": "Hybrid",
+  "Designs": {
+    "T-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "Two bars are next to each other."
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "Two bars are both at the bottom of stacked bars."
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "Two bars are located in two groups."
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "Two bars are both at the top of stacked bars."
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "One bar is on the top of the other."
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-arc-inner-0"
+        }
+      ]
+    }
+  },
+  "Tasks": ["sort"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "sort-1": {
+          "rank": ["E-1", "E-2", "E-3", "E-4", "E-5"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-3"],
+              ["E-1", "E-4"],
+              ["E-1", "E-5"],
+              ["E-2", "E-4"],
+              ["E-2", "E-5"],
+              ["E-3", "E-4"],
+              ["E-3", "E-5"]
+            ],
+            "significance-method": "bootstrapping",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "sort-2": {
+          "rank": ["E-1", "E-6"],
+          "significance": {
+            "pairs": [["E-1", "E-6"]],
+            "significance-method": "bootstrapping",
+            "significance-threshold": 0.95,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {
+      "effectiveness": {
+        "overall": {
+          "rank": [["T-1", "T-2"], ["T-3", "T-4", "T-5"], "T-6", "T-7"],
+          "significance": []
+        }
+      }
+    }
+  }
+}

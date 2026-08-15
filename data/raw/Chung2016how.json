@@ -1,0 +1,230 @@
+{
+  "Title": "How Ordered Is It? On the Perceptual Orderability of Visual Channels",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-circle"
+        }
+      ]
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "texture",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "line"
+        }
+      ]
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "shape",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "point"
+        }
+      ]
+    }
+  },
+  "Tasks": ["correlate", "find-extremum"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "correlate": {
+          "rank": ["E-1", "E-4", "E-6", "E-2", "E-5", "E-3"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-2"],
+              ["E-1", "E-3"],
+              ["E-1", "E-5"],
+              ["E-4", "E-2"],
+              ["E-4", "E-3"],
+              ["E-4", "E-5"],
+              ["E-6", "E-3"]
+            ],
+            "significance-method": "Friedman test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum": {
+          "rank": ["E-2", "E-6", "E-4", "E-1", "E-5", "E-3"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-6"],
+              ["E-2", "E-4"],
+              ["E-2", "E-1"],
+              ["E-2", "E-5"],
+              ["E-2", "E-3"],
+              ["E-6", "E-5"],
+              ["E-6", "E-3"],
+              ["E-4", "E-5"],
+              ["E-4", "E-3"],
+              ["E-1", "E-5"],
+              ["E-1", "E-3"]
+            ],
+            "significance-method": "Friedman test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "time": {
+        "correlate": {
+          "rank": ["E-2", "E-5", "E-1", "E-4", "E-3", "E-6"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-3"],
+              ["E-2", "E-6"],
+              ["E-5", "E-4"],
+              ["E-5", "E-6"],
+              ["E-1", "E-4"],
+              ["E-1", "E-6"],
+              ["E-4", "E-6"],
+              ["E-3", "E-6"]
+            ],
+            "significance-method": "Friedman test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "find-extremum": {
+          "rank": ["E-1", "E-5", "E-4", "E-3", "E-2", "E-6"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-6"],
+              ["E-5", "E-6"],
+              ["E-4", "E-6"],
+              ["E-3", "E-6"],
+              ["E-2", "E-6"]
+            ],
+            "significance-method": "Friedman test",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "Title": "Neighborhood Perception in Bar Charts",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "low (25%) bar, surrounded by lowest bars"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "low (25%) bar, surrounded by similar bars"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "low (25%) bar, surrounded by highest bars"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "medium (50%) bar, surrounded by lowest bars"
+    },
+    "E-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "medium (50%) bar, surrounded by similar bars"
+    },
+    "E-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "medium (50%) bar, surrounded by highest bars"
+    },
+    "E-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "high (75%) bar, surrounded by lowest bars"
+    },
+    "E-8": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "high (75%) bar, surrounded by similar bars"
+    },
+    "E-9": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "high (75%) bar, surrounded by highest bars"
+    }
+  },
+  "Tasks": ["sort"],
+  "Results": {
+    "Experimental": {
+      "bias-overestimate": {
+        "sort": {
+          "rank": ["E-3", "E-1", "E-2"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-1"],
+              ["E-3", "E-2"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      },
+      "bias-underestimate": {
+        "sort": {
+          "rank": ["E-5", "E-4", "E-6", "E-7", "E-8", "E-9"],
+          "significance": {
+            "pairs": [
+              ["E-5", "E-6"],
+              ["E-5", "E-7"],
+              ["E-5", "E-8"],
+              ["E-5", "E-9"],
+              ["E-4", "E-6"],
+              ["E-4", "E-7"],
+              ["E-4", "E-8"],
+              ["E-4", "E-9"],
+              ["E-6", "E-7"],
+              ["E-6", "E-8"],
+              ["E-6", "E-9"],
+              ["E-7", "E-9"],
+              ["E-8", "E-9"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

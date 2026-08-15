@@ -1,0 +1,222 @@
+{
+  "Title": "Rainbow Dash: Intuitiveness, interpretability and memorability of the rainbow color scheme in visualization",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "RC-Choro"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "RC-Isa"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "SC-Choro"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "linear"
+            },
+            {
+              "data-type": "quantitative-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": "area-other"
+        }
+      ],
+      "note": "SC-Isa"
+    }
+  },
+  "Tasks": ["find-extremum", "filter", "determine-range"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "find-extremum": {
+          "rank": [["E-3", "E-4"], "E-2", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-2"],
+              ["E-3", "E-1"],
+              ["E-4", "E-2"],
+              ["E-4", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.23
+          }
+        },
+        "filter": {
+          "rank": [["E-1", "E-3"], "E-2", "E-4"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-2"],
+              ["E-1", "E-4"],
+              ["E-3", "E-2"],
+              ["E-3", "E-4"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.044
+          }
+        },
+        "determine-range": {
+          "rank": ["E-2", "E-4", "E-1", "E-3"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-1"],
+              ["E-2", "E-3"],
+              ["E-4", "E-3"],
+              ["E-1", "E-3"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.064
+          }
+        }
+      },
+      "time": {
+        "find-extremum": {
+          "rank": [["E-3", "E-4"], "E-2", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-2"],
+              ["E-3", "E-1"],
+              ["E-4", "E-2"],
+              ["E-4", "E-1"],
+              ["E-2", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.025
+          }
+        },
+        "filter": {
+          "rank": [["E-1", "E-2", "E-3"], "E-4"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "determine-range": {
+          "rank": ["E-3", ["E-1", "E-2", "E-4"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}

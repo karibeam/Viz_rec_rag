@@ -1,0 +1,477 @@
+{
+  "Title": "Automating the Design of Graphical Presentations of Relational Information",
+  "Category": "Theory",
+  "Designs": {
+    "T-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-5": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-6": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-7": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-8": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": ""
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-9": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-10": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-11": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-12": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-13": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-14": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-15": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-16": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-17": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "ordinal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "texture",
+              "scale": "ordinal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-18": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-19": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-20": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-21": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "angle",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-22": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "orientation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-23": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "area",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-24": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-saturation",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-25": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-26": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "texture",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    },
+    "T-27": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "shape",
+              "scale": "nominal"
+            }
+          ],
+          "mark": ""
+        }
+      ]
+    }
+  },
+  "Tasks": [],
+  "Results": {
+    "Experimental": {},
+    "Theoretical": {
+      "effectiveness": {
+        "overall-1": {
+          "rank": [["T-1", "T-2"], "T-3", "T-4", "T-5", "T-6", "T-7", "T-8"],
+          "significance": []
+        },
+        "overall-2": {
+          "rank": [
+            ["T-9", "T-10"],
+            "T-15",
+            "T-16",
+            "T-17",
+            "T-11",
+            "T-12",
+            "T-13",
+            "T-14"
+          ],
+          "significance": []
+        },
+        "overall-3": {
+          "rank": [
+            ["T-18", "T-19"],
+            "T-25",
+            "T-26",
+            "T-24",
+            "T-27",
+            "T-20",
+            "T-21",
+            "T-22",
+            "T-23"
+          ],
+          "significance": []
+        }
+      }
+    }
+  }
+}

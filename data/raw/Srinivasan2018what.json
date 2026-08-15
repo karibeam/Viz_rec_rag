@@ -1,0 +1,373 @@
+{
+  "Title": "What’s the Difference?: Evaluating Variations of Multi-Series Bar Charts for Visual Comparison Tasks",
+  "Category": "Experiment",
+  "Designs": {
+    "E-1": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        }
+      ],
+      "note": "grouped bar chart"
+    },
+    "E-2": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ],
+      "note": "difference chart"
+    },
+    "E-3": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal-1",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            },
+            {
+              "data-type": "nominal-2",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "color-hue",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ],
+      "note": "grouped bar chart with difference overlays"
+    },
+    "E-4": {
+      "layers": [
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "length",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "area-rect"
+        },
+        {
+          "encodings": [
+            {
+              "data-type": "quantitative",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionY",
+              "scale": "linear"
+            },
+            {
+              "data-type": "nominal",
+              "data-charcs": {},
+              "data-trans": {},
+              "channel": "positionX",
+              "scale": "nominal"
+            }
+          ],
+          "mark": "point"
+        }
+      ],
+      "note": "single bar chart with difference overlays"
+    }
+  },
+  "Tasks": ["find-extremum", "aggregate", "determine-range", "filter"],
+  "Results": {
+    "Experimental": {
+      "accuracy": {
+        "find-extremum-1": {
+          "rank": ["E-3", "E-4", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-1"],
+              ["E-4", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.037
+          }
+        },
+        "find-extremum-2": {
+          "rank": ["E-1", "E-3", "E-4"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-4"],
+              ["E-3", "E-4"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.538
+          }
+        },
+        "aggregate-1": {
+          "rank": ["E-2", "E-4", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-1"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.6
+          }
+        },
+        "aggregate-2": {
+          "rank": ["E-2", "E-4", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-1"],
+              ["E-2", "E-3"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.515
+          }
+        },
+        "determine-range-1": {
+          "rank": ["E-3", "E-2", "E-1", "E-4"],
+          "significance": {
+            "pairs": [
+              ["E-3", "E-4"],
+              ["E-2", "E-4"],
+              ["E-1", "E-4"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.214
+          }
+        },
+        "determine-range-2": {
+          "rank": ["E-1", "E-2", "E-4", "E-3"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "filter-1": {
+          "rank": ["E-1", ["E-3", "E-4"]],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "none",
+            "effect-size-value": null
+          }
+        },
+        "filter-2": {
+          "rank": ["E-1", "E-3", "E-4"],
+          "significance": {
+            "pairs": [["E-1", "E-4"]],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.05,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.01
+          }
+        }
+      },
+      "time": {
+        "find-extremum-1": {
+          "rank": ["E-1", "E-3", "E-4"],
+          "significance": {
+            "pairs": [["E-1", "E-4"]],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.037
+          }
+        },
+        "find-extremum-2": {
+          "rank": ["E-1", "E-3", "E-4"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-4"],
+              ["E-3", "E-4"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.538
+          }
+        },
+        "aggregate-1": {
+          "rank": ["E-2", "E-4", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-3"],
+              ["E-2", "E-1"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.6
+          }
+        },
+        "aggregate-2": {
+          "rank": ["E-2", "E-3", "E-4", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-3"],
+              ["E-2", "E-4"],
+              ["E-2", "E-1"],
+              ["E-3", "E-4"],
+              ["E-3", "E-1"],
+              ["E-4", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.515
+          }
+        },
+        "determine-range-1": {
+          "rank": ["E-2", "E-4", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-4"],
+              ["E-2", "E-3"],
+              ["E-2", "E-1"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.214
+          }
+        },
+        "determine-range-2": {
+          "rank": ["E-2", "E-4", "E-3", "E-1"],
+          "significance": {
+            "pairs": [
+              ["E-2", "E-1"],
+              ["E-2", "E-3"],
+              ["E-4", "E-1"],
+              ["E-3", "E-1"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.01
+          }
+        },
+        "filter-1": {
+          "rank": ["E-1", "E-3", "E-4"],
+          "significance": {
+            "pairs": [
+              ["E-1", "E-4"],
+              ["E-3", "E-4"]
+            ],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "Eta-squared",
+            "effect-size-value": 0.122
+          }
+        },
+        "filter-2": {
+          "rank": ["E-1", "E-3", "E-4"],
+          "significance": {
+            "pairs": [],
+            "significance-method": "ANOVA",
+            "significance-threshold": 0.001,
+            "effect-size-method": "none",
+            "effect-size-value": 0.142
+          }
+        }
+      }
+    },
+    "Theoretical": {}
+  }
+}
