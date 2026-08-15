@@ -92,6 +92,8 @@ if st.button("Recomendar", type="primary", disabled=not pergunta.strip()):
     else:
         if res.get("erro"):
             st.error(res["erro"])
+        elif res.get("fora_de_escopo"):
+            st.warning(f"**Fora do escopo da base.** {res['ressalva']}")
         else:
             if res.get("ressalva"):
                 st.info(f"⚠️ {res['ressalva']}")
@@ -108,6 +110,36 @@ if st.button("Recomendar", type="primary", disabled=not pergunta.strip()):
                 render_opcao("ALTERNATIVA", res.get("alternativa"), "orange")
 
             st.divider()
+            placar = res.get("placar")
+            if placar:
+                tarefa = placar.get("tarefa_identificada") or "não identificada"
+                with st.expander(f"Como o sistema decidiu — placar (tarefa: {tarefa})", expanded=True):
+                    st.caption(
+                        "A escolha é calculada em Python, não pelo modelo. Cada trecho recuperado "
+                        "vota no gráfico que venceu no seu estudo, com peso derivado da força "
+                        "daquela evidência."
+                    )
+                    st.dataframe(
+                        [
+                            {
+                                "#": c["posicao"],
+                                "gráfico": c["nome"],
+                                "pontos": c["pontos"],
+                                "trechos a favor": ", ".join(str(a["trecho"]) for a in c["a_favor"]) or "—",
+                                "trechos contra": ", ".join(str(a["trecho"]) for a in c["contra"]) or "—",
+                            }
+                            for c in placar["ranking"]
+                        ],
+                        hide_index=True,
+                        use_container_width=True,
+                    )
+                    vencedor = placar.get("principal") or {}
+                    if vencedor.get("a_favor"):
+                        st.caption("Memória de cálculo do 1º colocado:")
+                        for a in vencedor["a_favor"]:
+                            fatores = " × ".join(f"{k}={v}" for k, v in a["fatores"].items())
+                            st.text(f"  trecho {a['trecho']}:  {fatores}  =  {a['peso']}")
+
             with st.expander(f"Trechos recuperados da base ({len(res['trechos'])})"):
                 for t in res["trechos"]:
                     st.markdown(

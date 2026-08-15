@@ -80,6 +80,38 @@ class Retriever:
         _salvar_cache()
         return texto
 
+    def search_com_tarefa(self, pergunta: str, tarefa: str, k: int = None):
+        """Busca normal + reforco de trechos da tarefa analitica identificada.
+
+        Sem isso, uma pergunta sobre comparar categorias pode recuperar apenas
+        achados rotulados com outra tarefa, e o criterio de desempate mais forte
+        (compatibilidade de tarefa) nunca chega a ser aplicado -- medimos 0/6 em
+        um dos casos. A busca aberta continua valendo: os trechos da tarefa sao
+        acrescentados, nao substituem os demais.
+        """
+        k = k or self.k
+        base = self.search(pergunta, k=k)
+        if not tarefa:
+            return base
+
+        # Vagas RESERVADAS: trechos da tarefa costumam ter similaridade um pouco
+        # menor, entao apenas juntar e reordenar por score os descartaria de novo.
+        reserva = max(1, k // 3)
+        ja_na_tarefa = [p for p in base if p[0].metadata.get("tarefa_canonica") == tarefa]
+        if len(ja_na_tarefa) >= reserva:
+            return base
+
+        extras = self.search(pergunta, k=reserva, filtro={"tarefa_canonica": tarefa})
+        vistos = {d.metadata.get("finding_id") for d, _ in base}
+        novos = [(d, s) for d, s in extras if d.metadata.get("finding_id") not in vistos]
+        if not novos:
+            return base
+
+        faltam = reserva - len(ja_na_tarefa)
+        # descarta os piores da busca aberta para abrir espaco, preservando a ordem
+        mantidos = base[: k - min(faltam, len(novos))]
+        return sorted(mantidos + novos[:faltam], key=lambda p: -p[1])
+
     def search(self, pergunta: str, k: int = None, filtro: dict = None):
         """Retorna [(Document, similaridade_de_cosseno)], do mais ao menos relevante.
 

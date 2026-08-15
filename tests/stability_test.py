@@ -70,10 +70,12 @@ def rodar(pergunta, k, use_hyde, runs, limpar_cache=False):
             r = recomendar(pergunta, k=k, retriever=Retriever(k=k, use_hyde=use_hyde))
             resultados.append(
                 {
-                    "principal": (r.get("principal") or {}).get("grafico", ""),
+                    "fora_de_escopo": bool(r.get("fora_de_escopo")),
+                    "principal": (r.get("principal") or {}).get("grafico", "") or ("(recusada)" if r.get("fora_de_escopo") else ""),
                     "alternativa": (r.get("alternativa") or {}).get("grafico", ""),
                     "fontes": sorted(r.get("fontes") or []),
-                    "criterio": r.get("criterio_desempate", ""),
+                    "criterio": ((r.get("placar") or {}).get("tarefa_identificada") or ""),
+                    "placar": [(c["nome"], c["pontos"]) for c in ((r.get("placar") or {}).get("ranking") or [])],
                     "houve_conflito": bool(r.get("conflito")),
                 }
             )
@@ -99,6 +101,7 @@ def analisar(pergunta, resultados):
         "principais_vistos": [r["principal"] for r in validos],
         "criterios": [r["criterio"] for r in validos],
         "conflitos": sum(r["houve_conflito"] for r in validos),
+        "placar_estavel": len({tuple(r.get("placar") or []) for r in validos}) == 1,
         "sobreposicao_fontes": round(
             len(set(fontes[0]) & set(fontes[-1])) / max(len(set(fontes[0]) | set(fontes[-1])), 1), 2
         ),
@@ -161,20 +164,26 @@ def main():
     if not use_hyde:
         print("    (sem HyDE a recuperacao e deterministica: os k chunks sao sempre\n     os mesmos. Esta metrica mede quais deles o LLM escolheu citar.)")
     print(f"  perguntas com conflito declarado:  {sum(1 for a in validas if a['conflitos'])}/{n}")
+    fora = sum(1 for a in validas if all(p == "(recusada)" for p in a["principais_vistos"]))
+    print(f"  perguntas recusadas (fora de escopo): {fora}/{n}")
     crit = Counter(c for a in validas for c in a["criterios"] if c)
-    print(f"  criterios de desempate usados:     {dict(crit)}")
+    est_pl = sum(a.get("placar_estavel", False) for a in validas)
+    print(f"  PLACAR identico (deterministico):  {est_pl}/{n}  ({100*est_pl/n:.0f}%)")
+    print(f"  tarefas identificadas:             {dict(crit)}")
 
     taxa = est_p / n
     print("\nLEITURA:")
-    if taxa >= 0.8:
-        print("  Estabilidade alta. O desempate no prompt e suficiente para o MVP;")
-        print("  o placar deterministico vira otimizacao opcional.")
-    elif taxa >= 0.5:
-        print("  Estabilidade media. A escolha ainda oscila em parte das perguntas.")
-        print("  Vale implementar o placar deterministico antes de publicar resultados.")
+    if est_pl < n:
+        print("  ATENCAO: o placar deveria ser 100% deterministico e nao foi.")
+        print("  Investigue antes de confiar nos demais numeros.")
+    elif taxa >= 0.95:
+        print("  Reproduzivel. O placar decide e o LLM respeita a decisao.")
+    elif taxa >= 0.8:
+        print("  Quase reproduzivel. O placar e estavel, mas o LLM ocasionalmente")
+        print("  renomeia o grafico vencedor -- reforce a instrucao de copiar o nome.")
     else:
-        print("  Estabilidade baixa. A recomendacao esta essencialmente arbitraria:")
-        print("  o placar deterministico e necessario, nao opcional.")
+        print("  O placar e estavel mas a saida final nao. O LLM esta ignorando o")
+        print("  placar: revise o bloco de instrucoes em recommend.SYSTEM.")
 
     SAIDA.write_text(
         json.dumps(

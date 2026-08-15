@@ -16,6 +16,7 @@ import sys
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 
 import config
+import tally
 import validate_spec
 from retrieve import Retriever, format_context
 
@@ -28,32 +29,30 @@ regras proprias de recomendacao: se os trechos nao sustentarem uma escolha, diga
 isso no campo "ressalva" em vez de inventar. Toda justificativa deve remeter ao
 que os trechos afirmam, citando o numero do trecho usado.
 
-CRITERIO DE DESEMPATE (obrigatorio quando os trechos apontam graficos diferentes):
-os trechos vem de estudos independentes, que compararam conjuntos diferentes de
-alternativas. Quando discordarem, aplique NESTA ORDEM:
+A ESCOLHA DO GRAFICO NAO E SUA. Ela ja foi calculada por um placar
+deterministico, a partir dos mesmos trechos que voce recebeu, ponderando:
+compatibilidade com a tarefa analitica, significancia estatistica, evidencia
+experimental, numero de alternativas comparadas e, por ultimo, similaridade.
 
-  1. Prefira o trecho cuja TAREFA ANALITICA corresponde ao que o usuario pediu.
-     Um estudo sobre "encontrar o maior valor" nao sustenta uma recomendacao
-     sobre "ver correlacao", por mais parecido que o texto pareca.
-  2. Entre os que sobrarem, prefira `diferenca estatisticamente significativa=sim`
-     sobre `nao-reportada`: sem significancia, o estudo nao demonstrou que uma
-     opcao e realmente melhor que a outra.
-  3. Prefira `evidencia=experimental` sobre `teorica`.
-  4. Prefira quem comparou MAIS alternativas (`alternativas comparadas`).
-  5. So entao use a similaridade como ultimo desempate.
+  - "principal" DEVE ser o 1o colocado do placar.
+  - "alternativa" DEVE ser o 2o colocado do placar.
+  - Use exatamente os nomes de grafico do placar.
+  - Nao proponha um grafico que nao esteja no placar, nem reordene os colocados.
 
-A similaridade e o criterio MAIS FRACO de propósito: ela mede parecenca textual
-com a pergunta, nao forca da evidencia. As similaridades costumam ficar muito
-proximas entre si, entao nao trate uma diferenca pequena como significativa.
+Seu trabalho e EXPLICAR essa decisao em linguagem simples e desenhar as specs
+Vega-Lite. Justifique cada escolha citando os trechos que votaram nela (a coluna
+"a favor" do placar diz quais foram).
 
-Diga SEMPRE, no campo "conflito", quais trechos discordaram e qual criterio acima
-resolveu. Se nao houve discordancia, deixe "".
+Se o 1o colocado for claramente inadequado para a pergunta, nao o troque: diga
+o problema no campo "ressalva".
 
 Escreva em portugues do Brasil, em linguagem simples, sem jargao academico.
 Responda SEMPRE com um unico objeto JSON valido, sem cercas de codigo."""
 
 USER_TMPL = """PERGUNTA DO USUARIO:
 {pergunta}
+
+{placar}
 
 TRECHOS RECUPERADOS DA BASE DE CONHECIMENTO:
 {contexto}
@@ -62,20 +61,19 @@ Produza um objeto JSON com EXATAMENTE estas chaves:
 
 {{
   "principal": {{
-    "grafico": "nome popular do grafico recomendado",
-    "justificativa": "2 a 4 frases explicando por que este grafico, citando os trechos (ex: 'segundo o trecho 2, ...'). Sem jargao.",
+    "grafico": "copie o nome do 1o colocado do placar",
+    "justificativa": "2 a 4 frases explicando por que este grafico venceu, citando os trechos que votaram nele (ex: 'segundo o trecho 2, ...'). Sem jargao.",
     "trechos_usados": [numeros dos trechos que sustentam esta escolha],
     "vegalite_spec": {{ spec Vega-Lite v5 completa e renderizavel }}
   }},
   "alternativa": {{
-    "grafico": "nome popular de um segundo grafico plausivel",
+    "grafico": "copie o nome do 2o colocado do placar",
     "justificativa": "2 a 3 frases dizendo em que situacao esta opcao seria preferivel a principal, citando os trechos.",
     "trechos_usados": [numeros dos trechos],
     "vegalite_spec": {{ spec Vega-Lite v5 completa e renderizavel }}
   }},
   "ressalva": "string: escreva aqui se os trechos recuperados nao cobrirem bem a pergunta, ou \\"\\" se a base sustenta bem a resposta.",
-  "conflito": "string: se os trechos apontaram graficos diferentes, diga em 1-2 frases quais discordaram e qual criterio de desempate resolveu (ex: 'os trechos 2 e 4 indicavam graficos diferentes; prevaleceu o trecho 2 por ter diferenca estatisticamente significativa'). Deixe \\"\\" se nao houve discordancia.",
-  "criterio_desempate": "string: qual criterio decidiu, exatamente um de: \\"tarefa\\", \\"significancia\\", \\"experimental\\", \\"n_alternativas\\", \\"similaridade\\", \\"sem conflito\\"."
+  "conflito": "string: se os trechos apontaram graficos diferentes, explique em 1-2 frases, para um leigo, o que separou o 1o do 2o colocado no placar. Deixe \\"\\" se so houve um candidato."
 }}
 
 Regras para as specs Vega-Lite:
@@ -130,9 +128,16 @@ def _finalizar_opcao(opcao, hits):
     }
 
 
-def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None):
+def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None,
+               usar_placar: bool = True):
     r = retriever or Retriever(k=k, use_hyde=use_hyde)
-    hits = r.search(pergunta, k=k)
+
+    tarefa = None
+    if usar_placar:
+        tarefa, _ = tally.tarefa_da_pergunta(pergunta)
+        hits = r.search_com_tarefa(pergunta, tarefa, k=k)
+    else:
+        hits = r.search(pergunta, k=k)
 
     if not hits:
         return {
@@ -141,11 +146,39 @@ def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None
         }
 
     contexto = format_context(hits)
+    placar = tally.montar_placar(pergunta, hits, tarefa_alvo=tarefa) if usar_placar else None
+
+    if placar and placar["fora_de_escopo"]:
+        # Recusa deterministica e sem custo de API: a pergunta nao corresponde a
+        # nenhuma das tarefas analiticas cobertas pela base.
+        return {
+            "pergunta": pergunta,
+            "principal": None,
+            "alternativa": None,
+            "fora_de_escopo": True,
+            "ressalva": (
+                "Esta pergunta nao parece ser sobre qual grafico usar para uma analise. "
+                "A base cobre estudos de percepcao grafica para 10 tarefas (comparar valores, "
+                "ver correlacao, encontrar extremos, ver distribuicao, entre outras), e a "
+                f"pergunta ficou abaixo do piso de relevancia "
+                f"({placar['similaridade_tarefa']} < {placar['limiar_tarefa']}). "
+                "Tente descrever a analise que quer fazer com seus dados."
+            ),
+            "conflito": "",
+            "placar": placar,
+            "fontes": [],
+            "trechos": [],
+        }
+    bloco_placar = tally.formatar_placar(placar) if placar else "(placar desativado)"
+
     # temperatura 0: a recomendacao precisa ser reproduzivel entre execucoes
     llm = config.get_chat(temperature=0.0)
     resp = config.invoke_with_retry(
         llm,
-        [("system", SYSTEM), ("human", USER_TMPL.format(pergunta=pergunta, contexto=contexto))],
+        [
+            ("system", SYSTEM),
+            ("human", USER_TMPL.format(pergunta=pergunta, contexto=contexto, placar=bloco_placar)),
+        ],
     )
     obj = parse_json_object(config.text_of(resp))
 
@@ -164,7 +197,7 @@ def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None
         "alternativa": alternativa,
         "ressalva": str(obj.get("ressalva") or "").strip(),
         "conflito": str(obj.get("conflito") or "").strip(),
-        "criterio_desempate": str(obj.get("criterio_desempate") or "").strip(),
+        "placar": placar,
         "fontes": todas,
         "trechos": [
             {
@@ -183,6 +216,10 @@ def imprimir(res: dict):
     if res.get("erro"):
         print("ERRO:", res["erro"])
         return
+    if res.get("fora_de_escopo"):
+        print(f"\nPERGUNTA: {res['pergunta']}\n")
+        print(f"FORA DE ESCOPO: {res['ressalva']}")
+        return
     print(f"\nPERGUNTA: {res['pergunta']}\n")
     for rotulo, chave in (("PRINCIPAL", "principal"), ("ALTERNATIVA", "alternativa")):
         opc = res.get(chave)
@@ -193,9 +230,15 @@ def imprimir(res: dict):
         print(f"{rotulo}: {opc['grafico']}{flag}")
         print(f"  {opc['justificativa']}")
         print(f"  fontes: {', '.join(opc['fontes']) or '(nenhuma citada)'}\n")
+    placar = res.get("placar")
+    if placar:
+        print(f"PLACAR (tarefa identificada: {placar.get('tarefa_identificada') or '?'})")
+        for c in placar["ranking"][:5]:
+            favor = ", ".join(str(a["trecho"]) for a in c["a_favor"]) or "-"
+            print(f"  {c['posicao']}. {c['pontos']:>7.3f}  {c['nome'][:48]:<50} trechos {favor}")
+        print()
     if res.get("conflito"):
-        print(f"CONFLITO: {res['conflito']}")
-        print(f"  criterio que decidiu: {res.get('criterio_desempate') or '(nao informado)'}\n")
+        print(f"CONFLITO: {res['conflito']}\n")
     if res.get("ressalva"):
         print(f"RESSALVA: {res['ressalva']}\n")
     print("TRECHOS RECUPERADOS:")

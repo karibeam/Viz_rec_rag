@@ -148,7 +148,8 @@ utilizável. Medido nesta chave:
 | `gemini-3.5-flash-lite` | centenas/dia | é o padrão do projeto |
 | `gemini-embedding-001` | 100/minuto | indexação (o `build_index.py` já faz throttling) |
 
-Cada pergunta do usuário custa **2 chamadas** (HyDE + geração). Se aparecer
+Cada pergunta do usuário custa **1 chamada** (a geração) — ou 2 se o HyDE for
+reativado. Perguntas recusadas pelo piso de relevância custam **zero**. Se aparecer
 `RESOURCE_EXHAUSTED` com `GenerateRequestsPerDayPerProjectPerModel`, é cota
 diária estourada — esperar não resolve dentro do dia, troque de modelo.
 
@@ -192,36 +193,57 @@ Se atingir limite de requisições por minuto, reduza a concorrência: `--worker
 
 ---
 
-## Desempate entre estudos que discordam
+## Como o sistema decide: o placar
 
-Os trechos recuperados vêm de estudos independentes, que compararam conjuntos
-diferentes de alternativas em contextos diferentes. Para a tarefa "comparar
-valores", a base aponta **34 gráficos distintos** como vencedores. Sem critério,
-a escolha entre eles seria arbitrária.
+A escolha do gráfico é feita em **Python, não pelo LLM** ([tally.py](src/tally.py)).
+Cada trecho recuperado vota no gráfico que venceu no seu estudo, com peso derivado
+da força daquela evidência. O LLM recebe o placar pronto e só **explica e desenha**
+as specs — não decide nem reordena.
 
-O `recommend.py` aplica um critério explícito, **nesta ordem**:
+```
+peso = similaridade
+     × 1.60  se a tarefa analítica do trecho bate com a da pergunta
+     × 1.30  se houve diferença estatisticamente significativa
+     × 1.15  se a evidência é experimental (não teórica)
+     × (1 + 0.02 × nº de alternativas comparadas)
+     ÷ n     se for o n-ésimo achado do MESMO artigo
 
-1. **Correspondência de tarefa analítica** — um estudo sobre "encontrar o maior
-   valor" não sustenta recomendação sobre "ver correlação", por mais parecido
-   que o texto seja.
-2. **Significância estatística** (`significancia=sim`) sobre `nao-reportada`.
-3. **Evidência experimental** sobre teórica.
-4. **Número de alternativas comparadas** — quem testou mais opções.
-5. **Similaridade** — deliberadamente o critério **mais fraco**.
+quem ficou em ÚLTIMO no estudo recebe voto contrário (−50% do peso)
+```
 
-A similaridade vem por último de propósito: ela mede parecença textual com a
-pergunta, não força da evidência. E na prática as similaridades ficam a
-0.007–0.022 umas das outras — tratar essa diferença como decisiva seria escolher
-aleatoriamente com passos extras.
+O divisor por artigo corrige um viés que só apareceu ao testar: um mesmo estudo
+costuma render vários achados (as mesmas condições com 4, 6 e 8 categorias), e sem
+amortecimento ele votava 3× enquanto estudos independentes votavam 1×. Num caso
+medido, 4 dos 6 trechos vinham do mesmo paper.
 
-Esses sinais são extraídos **deterministicamente do JSON original** (não pelo
-LLM) via `serialize.finding_signals()`, e entram no contexto do prompt. A resposta
-traz os campos `conflito` e `criterio_desempate`, então a decisão é auditável em
-vez de implícita.
+Os pesos são **parâmetros de projeto, não fatos da base** — estão explícitos no
+topo do módulo para poderem ser discutidos e ajustados.
+
+Isto **não** torna o sistema baseado em regras: não existe nenhum mapeamento
+"tipo de dado → gráfico". Candidatos, votos e pesos vêm inteiramente dos trechos
+recuperados. Trocar a base muda o resultado.
 
 ```bash
-.venv/bin/python src/backfill_signals.py   # preenche os sinais em cards já gerados
+.venv/bin/python src/tally.py "quero comparar vendas de 5 categorias"
 ```
+
+### Piso de relevância (quando o sistema recusa)
+
+Sem um piso, o placar sempre elege um vencedor — medimos o sistema respondendo
+"gráfico de dispersão" para *"qual biblioteca JavaScript devo usar?"*. O corte usa
+a similaridade entre a pergunta e as descrições das 10 tarefas canônicas.
+
+Calibrado nas 18 perguntas de avaliação, os grupos **se sobrepõem**:
+
+```
+legítimas   0.6591 ─────────────────────── 0.8116
+armadilhas  0.6104 ──────── 0.6620
+```
+
+Nenhum limiar separa sem erro. A escolha (`LIMIAR_TAREFA = 0.655`) é o maior valor
+que **não recusa nenhuma pergunta legítima**, assumindo a consequência de deixar
+passar casos-limite. Resultado medido: 0/15 legítimas recusadas, 2/3 armadilhas
+barradas. Para a zona cinzenta a defesa é o campo `ressalva` do LLM, não o piso.
 
 ## Avaliação
 

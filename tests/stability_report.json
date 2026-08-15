@@ -8,40 +8,42 @@
     "sem_cache": false
   },
   "resumo": {
-    "principal_estavel": 13,
+    "principal_estavel": 18,
     "total": 18
   },
   "analises": [
     {
       "pergunta": "Quero comparar as vendas de 5 categorias de produto",
-      "principal_estavel": false,
+      "principal_estavel": true,
       "alternativa_estavel": true,
       "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de barras",
-        "gráfico de barras por comprimento"
+        "fatias circulares",
+        "fatias circulares"
       ],
       "criterios": [
-        "significancia",
-        "similaridade"
+        "sort",
+        "sort"
       ],
       "conflitos": 2,
+      "placar_estavel": true,
       "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Como mostrar a evolução da temperatura ao longo de 12 meses?",
-      "principal_estavel": false,
+      "principal_estavel": true,
       "alternativa_estavel": true,
       "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de linha combinado com barras de média",
-        "gráfico de linhas combinado com barras de média"
+        "Gráfico de linhas sobrepostas (escala logarítmica)",
+        "Gráfico de linhas sobrepostas (escala logarítmica)"
       ],
       "criterios": [
-        "tarefa",
-        "sem conflito"
+        "correlate",
+        "correlate"
       ],
-      "conflitos": 1,
+      "conflitos": 2,
+      "placar_estavel": true,
       "sobreposicao_fontes": 1.0
     },
     {
@@ -50,95 +52,101 @@
       "alternativa_estavel": true,
       "fontes_estaveis": true,
       "principais_vistos": [
-        "gráfico de dispersão",
-        "Gráfico de dispersão"
+        "grafico de dispersao",
+        "grafico de dispersao"
       ],
       "criterios": [
-        "sem conflito",
-        "sem conflito"
+        "correlate",
+        "correlate"
       ],
-      "conflitos": 0,
+      "conflitos": 2,
+      "placar_estavel": true,
       "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Qual gráfico usar para mostrar a participação de cada região no total?",
       "principal_estavel": true,
-      "alternativa_estavel": false,
-      "fontes_estaveis": false,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de pizza",
-        "Gráfico de pizza"
+        "gráfico de pizza com quartis",
+        "gráfico de pizza com quartis"
       ],
       "criterios": [
-        "tarefa",
-        "tarefa"
+        "characterize-distribution",
+        "characterize-distribution"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.33
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Quero identificar valores fora do padrão numa lista de preços",
-      "principal_estavel": false,
-      "alternativa_estavel": false,
-      "fontes_estaveis": false,
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
       "principais_vistos": [
         "gráfico de dispersão",
-        "gráfico de linhas verticais categorizadas"
+        "gráfico de dispersão"
       ],
       "criterios": [
-        "n_alternativas",
-        "similaridade"
+        "find-anomalies",
+        "find-anomalies"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.5
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Tenho 3 lojas e 12 meses de faturamento, como mostro tudo junto?",
       "principal_estavel": true,
       "alternativa_estavel": true,
-      "fontes_estaveis": true,
+      "fontes_estaveis": false,
       "principais_vistos": [
-        "Gráfico de área empilhada em painéis",
-        "Gráfico de área empilhada em painéis"
+        "fatias circulares",
+        "fatias circulares"
       ],
       "criterios": [
-        "tarefa",
-        "similaridade"
+        "sort",
+        "sort"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 1.0
+      "placar_estavel": true,
+      "sobreposicao_fontes": 0.75
     },
     {
       "pergunta": "Como comparar duas fatias de um gráfico de pizza?",
       "principal_estavel": true,
-      "alternativa_estavel": false,
-      "fontes_estaveis": false,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de barras",
-        "Gráfico de barras"
+        "grafico de barras",
+        "grafico de barras"
       ],
       "criterios": [
-        "tarefa",
-        "tarefa"
+        "sort",
+        "sort"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.6
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Quero mostrar a distribuição das idades dos meus clientes",
       "principal_estavel": true,
       "alternativa_estavel": true,
-      "fontes_estaveis": false,
+      "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de dispersão",
+        "gráfico de dispersão",
         "gráfico de dispersão"
       ],
       "criterios": [
-        "tarefa",
-        "significancia"
+        "characterize-distribution",
+        "characterize-distribution"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.67
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Preciso destacar qual vendedor teve o maior resultado",
@@ -146,15 +154,16 @@
       "alternativa_estavel": true,
       "fontes_estaveis": false,
       "principais_vistos": [
-        "Gráfico de barras",
-        "Gráfico de barras"
+        "grafico de dispersao",
+        "grafico de dispersao"
       ],
       "criterios": [
-        "similaridade",
-        "tarefa"
+        "sort",
+        "sort"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.75
+      "placar_estavel": true,
+      "sobreposicao_fontes": 0.8
     },
     {
       "pergunta": "Como mostro a média de vendas por trimestre?",
@@ -162,110 +171,100 @@
       "alternativa_estavel": true,
       "fontes_estaveis": true,
       "principais_vistos": [
-        "gráfico de linha combinado com barras de média",
-        "gráfico de linha combinado com barras de média"
+        "gráfico de dispersão",
+        "gráfico de dispersão"
       ],
       "criterios": [
-        "n_alternativas",
-        "tarefa"
+        "aggregate",
+        "aggregate"
       ],
       "conflitos": 2,
+      "placar_estavel": true,
       "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Tenho dados de temperatura por hora e por dia da semana",
       "principal_estavel": true,
-      "alternativa_estavel": false,
-      "fontes_estaveis": false,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de linha combinado com barras de média",
-        "Gráfico de linha combinado com barras de média"
+        "gráfico de dispersão",
+        "gráfico de dispersão"
       ],
       "criterios": [
-        "tarefa",
-        "sem conflito"
+        "characterize-distribution",
+        "characterize-distribution"
       ],
-      "conflitos": 1,
-      "sobreposicao_fontes": 0.67
+      "conflitos": 2,
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Quero comparar o desempenho de 20 produtos diferentes",
       "principal_estavel": true,
       "alternativa_estavel": true,
-      "fontes_estaveis": false,
+      "fontes_estaveis": true,
       "principais_vistos": [
         "gráfico de diferenças",
         "gráfico de diferenças"
       ],
       "criterios": [
-        "tarefa",
-        "tarefa"
+        "sort",
+        "sort"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.75
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Como agrupo clientes parecidos visualmente?",
       "principal_estavel": true,
       "alternativa_estavel": true,
-      "fontes_estaveis": false,
+      "fontes_estaveis": true,
       "principais_vistos": [
-        "Gráfico de dispersão",
-        "gráfico de dispersão"
+        "grafico de dispersao",
+        "grafico de dispersao"
       ],
       "criterios": [
-        "tarefa",
-        "tarefa"
+        "cluster",
+        "cluster"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 0.5
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
     },
     {
       "pergunta": "Qual a melhor forma de mostrar percentuais que somam 100%?",
-      "principal_estavel": false,
-      "alternativa_estavel": false,
-      "fontes_estaveis": true,
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": false,
       "principais_vistos": [
-        "Gráfico de pizza",
-        "Gráfico de barras com comprimento proporcional"
+        "gráfico de pizza com quartis",
+        "gráfico de pizza com quartis"
       ],
       "criterios": [
-        "tarefa",
-        "tarefa"
+        "characterize-distribution",
+        "characterize-distribution"
       ],
       "conflitos": 2,
-      "sobreposicao_fontes": 1.0
+      "placar_estavel": true,
+      "sobreposicao_fontes": 0.67
     },
     {
       "pergunta": "Preciso ler o valor exato de cada mês no gráfico",
       "principal_estavel": true,
       "alternativa_estavel": true,
-      "fontes_estaveis": false,
-      "principais_vistos": [
-        "gráfico de barras tradicional",
-        "gráfico de barras tradicional"
-      ],
-      "criterios": [
-        "tarefa",
-        "sem conflito"
-      ],
-      "conflitos": 1,
-      "sobreposicao_fontes": 0.5
-    },
-    {
-      "pergunta": "Como faço um mapa coroplético do Brasil por estado?",
-      "principal_estavel": true,
-      "alternativa_estavel": true,
       "fontes_estaveis": true,
       "principais_vistos": [
-        "cartograma contínuo",
-        "cartograma contínuo"
+        "gráfico de bolhas",
+        "gráfico de bolhas"
       ],
       "criterios": [
-        "sem conflito",
-        "sem conflito"
+        "retrieve-value",
+        "retrieve-value"
       ],
-      "conflitos": 0,
+      "conflitos": 2,
+      "placar_estavel": true,
       "sobreposicao_fontes": 1.0
     },
     {
@@ -274,30 +273,49 @@
       "alternativa_estavel": true,
       "fontes_estaveis": true,
       "principais_vistos": [
-        "Não se aplica",
-        "Não se aplica"
+        "(recusada)",
+        "(recusada)"
       ],
       "criterios": [
-        "sem conflito",
-        "sem conflito"
+        "correlate",
+        "correlate"
       ],
       "conflitos": 0,
+      "placar_estavel": true,
       "sobreposicao_fontes": 0.0
     },
     {
       "pergunta": "Como mostro uma rede de conexões entre pessoas?",
-      "principal_estavel": false,
-      "alternativa_estavel": false,
-      "fontes_estaveis": false,
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
       "principais_vistos": [
         "gráfico de dispersão",
-        ""
+        "gráfico de dispersão"
       ],
       "criterios": [
-        "sem conflito",
-        "sem conflito"
+        "correlate",
+        "correlate"
+      ],
+      "conflitos": 2,
+      "placar_estavel": true,
+      "sobreposicao_fontes": 1.0
+    },
+    {
+      "pergunta": "Qual a cor da capa do meu relatório?",
+      "principal_estavel": true,
+      "alternativa_estavel": true,
+      "fontes_estaveis": true,
+      "principais_vistos": [
+        "(recusada)",
+        "(recusada)"
+      ],
+      "criterios": [
+        "retrieve-value",
+        "retrieve-value"
       ],
       "conflitos": 0,
+      "placar_estavel": true,
       "sobreposicao_fontes": 0.0
     }
   ]

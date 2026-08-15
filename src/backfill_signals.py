@@ -17,7 +17,7 @@ import config
 import serialize as S
 from build_index import get_store
 
-CAMPOS = ("evidencia", "metrica", "significancia", "n_designs", "tem_empate")
+CAMPOS = ("evidencia", "tarefa_canonica", "metrica", "significancia", "n_designs", "tem_empate")
 
 
 def sinais_por_card():
@@ -40,7 +40,7 @@ def main():
         if sinais is None:
             # cards de contexto (artigos sem ranking) nao tem achado associado
             card["metadata"].update(
-                evidencia="nao-aplicavel", metrica="", significancia="nao-aplicavel",
+                evidencia="nao-aplicavel", tarefa_canonica="", metrica="", significancia="nao-aplicavel",
                 n_designs=0, tem_empate=False,
             )
             continue

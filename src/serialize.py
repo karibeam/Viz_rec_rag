@@ -7,6 +7,7 @@ barras", "serve para comparar categorias") e feita pelo LLM em enrich.py.
 """
 
 import json
+import re
 from pathlib import Path
 
 # Rotulos de metricas: informam ao LLM como ler o ranking (maior = melhor?).
@@ -130,6 +131,34 @@ def iter_findings(paper: dict):
                 yield f"{group}/{metric}/{entry_id}", text, _flatten(rank)
 
 
+# As 10 tarefas analiticas do campo `Tasks` da base original. Usar esta lista em
+# vez dos rotulos que o LLM gerou evita a fragmentacao do vocabulario
+# ("ver correlacao" vs "ver correlação" viravam categorias distintas).
+TAREFAS_CANONICAS = (
+    "aggregate",
+    "characterize-distribution",
+    "cluster",
+    "correlate",
+    "determine-range",
+    "filter",
+    "find-anomalies",
+    "find-extremum",
+    "retrieve-value",
+    "sort",
+)
+
+
+def tarefa_canonica(entry_id: str) -> str:
+    """Extrai a tarefa do id do achado ('sort-1' -> 'sort').
+
+    Os ids dos resultados sao nomeados pela tarefa no dataset original, entao a
+    extracao e deterministica. Retorna "" quando nao ha tarefa associada
+    (ranking teorico geral, por exemplo 'overall').
+    """
+    base = re.sub(r"[-_ ]?\d+$", "", str(entry_id or "").strip()).replace(" ", "-")
+    return base if base in TAREFAS_CANONICAS else ""
+
+
 def finding_signals(paper: dict) -> dict:
     """Sinais de forca de evidencia por achado, extraidos do JSON original.
 
@@ -149,6 +178,7 @@ def finding_signals(paper: dict) -> dict:
                 rank = _unwrap(entry.get("rank"))
                 sinais[f"{group}/{metric}/{entry_id}"] = {
                     "evidencia": "experimental" if group == "Experimental" else "teorica",
+                    "tarefa_canonica": tarefa_canonica(entry_id),
                     "metrica": metric,
                     "significancia": "sim" if pares else "nao-reportada",
                     "n_designs": len(_flatten(rank)),
