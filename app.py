@@ -66,24 +66,30 @@ with st.sidebar:
         "Usar HyDE", value=False,
         help="Expande a pergunta antes de buscar. Medido: reduz a estabilidade de 89% para ~50% e dobra o consumo de cota."
     )
-    indexado = config.CHROMA_DIR.exists()
-    st.success("Indice encontrado") if indexado else st.error(
-        "Indice ausente. Rode: python src/enrich.py && python src/build_index.py"
-    )
+    # if/else de verdade, nao expressao condicional solta: o "magic" do Streamlit
+    # auto-exibe expressoes de nivel superior e quebra ao tentar renderizar o
+    # DeltaGenerator devolvido por st.success/st.error.
+    if config.CHROMA_DIR.exists():
+        st.success("Indice encontrado")
+    else:
+        st.error("Indice ausente. Rode: python src/enrich.py && python src/build_index.py")
     st.divider()
     st.caption("Exemplos")
     for ex in EXEMPLOS:
         if st.button(ex, use_container_width=True):
             st.session_state["pergunta"] = ex
 
+# `key` em vez de `value`: sem a chave, o campo perde o conteudo a cada rerun
+# (clicar em "Recomendar" apagava a pergunta antes de processa-la). Com a chave,
+# o valor vive em st.session_state e os botoes de exemplo escrevem nele direto.
 pergunta = st.text_area(
     "Sua pergunta",
-    value=st.session_state.get("pergunta", ""),
+    key="pergunta",
     placeholder="Ex: quero comparar o faturamento de 5 lojas no ultimo trimestre",
     height=90,
 )
 
-if st.button("Recomendar", type="primary", disabled=not pergunta.strip()):
+if st.button("Recomendar", type="primary", disabled=not (pergunta or "").strip()):
     try:
         with st.spinner("Buscando na base e montando a recomendacao..."):
             res = recomendar(pergunta.strip(), k=k, retriever=get_retriever(k, use_hyde))
@@ -98,10 +104,7 @@ if st.button("Recomendar", type="primary", disabled=not pergunta.strip()):
             if res.get("ressalva"):
                 st.info(f"⚠️ {res['ressalva']}")
             if res.get("conflito"):
-                st.warning(
-                    f"**Os estudos divergiram.** {res['conflito']}\n\n"
-                    f"Critério que decidiu: `{res.get('criterio_desempate') or 'não informado'}`"
-                )
+                st.warning(f"**Os estudos divergiram.** {res['conflito']}")
 
             col1, col2 = st.columns(2)
             with col1:
