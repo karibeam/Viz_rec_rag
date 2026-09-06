@@ -71,8 +71,7 @@ def rodar(pergunta, k, use_hyde, runs, limpar_cache=False):
             resultados.append(
                 {
                     "fora_de_escopo": bool(r.get("fora_de_escopo")),
-                    "principal": (r.get("principal") or {}).get("grafico", "") or ("(recusada)" if r.get("fora_de_escopo") else ""),
-                    "alternativa": (r.get("alternativa") or {}).get("grafico", ""),
+                    "principal": (r.get("recomendacao") or {}).get("grafico", "") or ("(recusada)" if r.get("fora_de_escopo") else ""),
                     "fontes": sorted(r.get("fontes") or []),
                     "criterio": ((r.get("placar") or {}).get("tarefa_identificada") or ""),
                     "placar": [(c["nome"], c["pontos"]) for c in ((r.get("placar") or {}).get("ranking") or [])],
@@ -90,13 +89,11 @@ def analisar(pergunta, resultados):
         return {"pergunta": pergunta, "status": "ERRO", "detalhe": resultados}
 
     principais = [normalizar(r["principal"]) for r in validos]
-    alternativas = [normalizar(r["alternativa"]) for r in validos]
     fontes = [tuple(r["fontes"]) for r in validos]
 
     return {
         "pergunta": pergunta,
         "principal_estavel": len(set(principais)) == 1,
-        "alternativa_estavel": len(set(alternativas)) == 1,
         "fontes_estaveis": len(set(fontes)) == 1,
         "principais_vistos": [r["principal"] for r in validos],
         "criterios": [r["criterio"] for r in validos],
@@ -111,7 +108,7 @@ def analisar(pergunta, resultados):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--runs", type=int, default=2, help="execucoes por pergunta")
-    ap.add_argument("-k", type=int, default=6)
+    ap.add_argument("-k", type=int, default=9)
     ap.add_argument("--hyde", action="store_true", help="liga o HyDE (desligado por padrao)")
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--limit", type=int, default=0)
@@ -150,15 +147,13 @@ def main():
 
     n = len(validas)
     est_p = sum(a["principal_estavel"] for a in validas)
-    est_a = sum(a["alternativa_estavel"] for a in validas)
     est_f = sum(a["fontes_estaveis"] for a in validas)
     sobre = sum(a["sobreposicao_fontes"] for a in validas) / n
 
     print("\n" + "=" * 72)
     print(f"ESTABILIDADE ({n} perguntas, {args.runs} execucoes cada)")
     print("=" * 72)
-    print(f"  recomendacao PRINCIPAL identica:   {est_p}/{n}  ({100*est_p/n:.0f}%)")
-    print(f"  recomendacao ALTERNATIVA identica: {est_a}/{n}  ({100*est_a/n:.0f}%)")
+    print(f"  RECOMENDACAO identica:             {est_p}/{n}  ({100*est_p/n:.0f}%)")
     print(f"  FONTES citadas identicas:          {est_f}/{n}  ({100*est_f/n:.0f}%)")
     print(f"  sobreposicao media das citacoes:   {sobre:.2f}")
     if not use_hyde:

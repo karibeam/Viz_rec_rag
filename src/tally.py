@@ -214,8 +214,9 @@ def montar_placar(pergunta: str, hits, tarefa_alvo=None):
         "fora_de_escopo": fora_de_escopo,
         "limiar_tarefa": LIMIAR_TAREFA,
         "ranking": ranking,
-        "principal": ranking[0] if ranking else None,
-        "alternativa": ranking[1] if len(ranking) > 1 else None,
+        # Só o 1o colocado vira recomendacao; o resto do ranking permanece
+        # exposto para o usuario auditar como a decisao foi tomada.
+        "vencedor": ranking[0] if ranking else None,
     }
 
 
@@ -243,7 +244,7 @@ if __name__ == "__main__":
     from retrieve import Retriever
 
     pergunta = " ".join(sys.argv[1:]) or "quero comparar as vendas de 5 categorias"
-    hits = Retriever(k=6, use_hyde=False).search(pergunta)
+    hits = Retriever(k=9, use_hyde=False).search(pergunta)
     placar = montar_placar(pergunta, hits)
     print(f"PERGUNTA: {pergunta}\n")
     print(formatar_placar(placar))

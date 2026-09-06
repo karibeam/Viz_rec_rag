@@ -1,8 +1,9 @@
 # Recomendador de Visualizações via RAG
 
 MVP de um sistema que recomenda gráficos para **não-especialistas**, a partir de uma
-pergunta em linguagem do dia a dia. A recomendação sai como **PRINCIPAL + ALTERNATIVA**,
-cada uma com spec **Vega-Lite** renderizável e as **fontes** que a sustentam.
+pergunta em linguagem do dia a dia. A saída é **um único gráfico recomendado**, com
+spec **Vega-Lite** renderizável e as **fontes** que a sustentam. O ranking completo
+dos candidatos fica visível à parte, para auditar a decisão.
 
 Baseado em **RAG, não em regras**: não existe nenhuma tabela do tipo
 "dado categórico + numérico → barras". Toda recomendação vem de trechos recuperados
@@ -59,7 +60,7 @@ DEPOIS (card enriquecido):     "Barras lado a lado permitiram ordenar valores co
 ```
 pergunta  →  embedding        (mesmo modelo da indexação)
           →  busca por cosseno no Chroma → top-k chunks
-          →  recommend.py     (LLM → JSON: principal + alternativa + Vega-Lite)
+          →  recommend.py     (LLM → JSON: recomendacao única + Vega-Lite)
           →  validate_spec.py (valida e repara a spec)
           →  resposta + fontes citadas + conflito declarado
 ```
@@ -226,6 +227,28 @@ recuperados. Trocar a base muda o resultado.
 ```bash
 .venv/bin/python src/tally.py "quero comparar vendas de 5 categorias"
 ```
+
+### Quantos trechos recuperar (k)
+
+`k=9` por padrão, e o número não é arbitrário. Os chunks são **achados**, não
+artigos, e um mesmo artigo rende vários — então aumentar `k` não garante mais
+estudos independentes. Medido nas 15 perguntas de avaliação:
+
+| k | artigos distintos | % dos trechos do maior artigo | perguntas dominadas por 1 artigo |
+|---|---|---|---|
+| 3 | 2.2 | 60% | 10/15 |
+| 6 | 3.9 | 42% | 7/15 |
+| **9** | **5.2** | **38%** | **2/15** |
+| 12 | 6.0 | 34% | 3/15 |
+
+Com `k=3`, em 10 de 15 perguntas metade ou mais dos trechos vinha de um único
+artigo: o placar deixava de ser uma votação entre estudos independentes. O
+amortecimento por artigo reduz o *peso* dessa repetição, mas não o problema de
+fundo — se metade dos trechos é de um paper só, poucos outros estudos têm voz.
+
+Na interface o slider fica sob "Avançado" (piso 6): é um hiperparâmetro de
+recuperação, sem significado para o público-alvo do sistema. No lugar dele, a
+tela mostra **quantos estudos independentes** sustentam a recomendação.
 
 ### Piso de relevância (quando o sistema recusa)
 

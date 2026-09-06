@@ -17,7 +17,7 @@ se ataca no `enrich.py`/chunking/HyDE, o segundo no prompt do `recommend.py`.
 | 1 | Quero comparar as vendas de 5 categorias de produto | barras | | |
 | 2 | Como mostrar a evolução da temperatura ao longo de 12 meses? | linhas | | |
 | 3 | Preciso ver se há relação entre horas de estudo e nota da prova | dispersão | | |
-| 4 | Qual gráfico usar para mostrar a participação de cada região no total? | barras (pizza como alternativa) | | |
+| 4 | Qual gráfico usar para mostrar a participação de cada região no total? | barras ou pizza | | |
 | 5 | Quero identificar valores fora do padrão numa lista de preços | dispersão/boxplot | | |
 | 6 | Tenho 3 lojas e 12 meses de faturamento, como mostro tudo junto? | linhas múltiplas / facetas | | |
 | 7 | Como comparar duas fatias de um gráfico de pizza? | barras (pizza é pior) | | |

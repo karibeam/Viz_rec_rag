@@ -50,12 +50,17 @@ def text_of(resposta) -> str:
 
 
 def invoke_with_retry(llm, entrada, tentativas: int = 4, espera_padrao: int = 30):
-    """Chama o modelo tolerando 429 transitorio (limite por minuto).
+    """Chama o modelo tolerando falhas transitorias do provedor.
 
-    O free tier limita requisicoes por minuto, e uma pergunta do usuario custa
-    duas chamadas (HyDE + geracao). Sem isso, um pico momentaneo derruba a
-    pergunta inteira. Cota DIARIA esgotada nao e recuperavel por espera: nesse
-    caso a excecao sobe para quem chamou.
+    Trata dois casos, ambos observados em uso real:
+
+    - 429 RESOURCE_EXHAUSTED: limite por minuto do free tier. A API informa
+      quanto esperar; obedecemos.
+    - 503 UNAVAILABLE / overloaded: o modelo esta sobrecarregado do lado do
+      provedor. Nao vem com tempo sugerido, entao usamos recuo exponencial.
+
+    Cota DIARIA esgotada ("PerDay") NAO e recuperavel por espera -- a excecao
+    sobe na hora, em vez de prender o processo em tentativas inuteis.
     """
     import re
     import time
@@ -65,12 +70,17 @@ def invoke_with_retry(llm, entrada, tentativas: int = 4, espera_padrao: int = 30
             return llm.invoke(entrada)
         except Exception as exc:
             msg = str(exc)
-            transitorio = "RESOURCE_EXHAUSTED" in msg or "429" in msg
+            cota = "RESOURCE_EXHAUSTED" in msg or "429" in msg
+            sobrecarga = "UNAVAILABLE" in msg or "503" in msg or "overloaded" in msg.lower()
             diario = "PerDay" in msg
-            if not transitorio or diario or tentativa == tentativas:
+            if (not cota and not sobrecarga) or diario or tentativa == tentativas:
                 raise
             m = re.search(r"retry in ([\d.]+)s", msg, re.IGNORECASE)
-            time.sleep(int(float(m.group(1))) + 2 if m else espera_padrao * tentativa)
+            if m:
+                espera = int(float(m.group(1))) + 2
+            else:
+                espera = espera_padrao * (2 ** (tentativa - 1))  # 30s, 60s, 120s
+            time.sleep(espera)
     raise RuntimeError("inalcancavel")
 
 

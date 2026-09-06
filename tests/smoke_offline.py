@@ -64,7 +64,7 @@ FAKE_ENRICH = json.dumps(
 
 FAKE_RECOMMEND = json.dumps(
     {
-        "principal": {
+        "recomendacao": {
             "grafico": "grafico de barras agrupadas",
             "justificativa": "Segundo o trecho 1, barras lado a lado permitem comparar valores por categoria com mais acerto.",
             "trechos_usados": [1],
@@ -75,21 +75,6 @@ FAKE_RECOMMEND = json.dumps(
                 "mark": "bar",
                 "encoding": {
                     "x": {"field": "categoria", "type": "nominal"},
-                    "y": {"field": "vendas", "type": "quantitative"},
-                },
-            },
-        },
-        "alternativa": {
-            "grafico": "grafico de linhas",
-            "justificativa": "Se o foco for a evolucao no tempo em vez da comparacao entre categorias.",
-            "trechos_usados": [1],
-            "vegalite_spec": {
-                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "title": "Evolucao de vendas",
-                "data": {"values": [{"mes": "jan", "vendas": 10}, {"mes": "fev", "vendas": 14}]},
-                "mark": "line",
-                "encoding": {
-                    "x": {"field": "mes", "type": "ordinal"},
                     "y": {"field": "vendas", "type": "quantitative"},
                 },
             },
@@ -156,10 +141,9 @@ import recommend
 
 recommend.config.get_chat = lambda temperature=0.0: fake_chat(FAKE_RECOMMEND)
 res = recommend.recomendar("quero comparar vendas de 5 categorias", k=3, retriever=r)
-check("principal presente", res["principal"]["grafico"] == "grafico de barras agrupadas")
-check("alternativa presente", res["alternativa"]["grafico"] == "grafico de linhas")
-check("spec principal valida", res["principal"]["spec_valida"], str(res["principal"]["spec_erros"]))
-check("spec alternativa valida", res["alternativa"]["spec_valida"], str(res["alternativa"]["spec_erros"]))
+check("recomendacao unica presente", res["recomendacao"]["grafico"] == "grafico de barras agrupadas")
+check("nao ha segunda opcao na saida", "alternativa" not in res and "principal" not in res)
+check("spec valida", res["recomendacao"]["spec_valida"], str(res["recomendacao"]["spec_erros"]))
 check("fontes rastreadas ate o arquivo de origem", len(res["fontes"]) >= 1, str(res["fontes"]))
 check("trechos recuperados anexados a resposta", len(res["trechos"]) >= 1)
 

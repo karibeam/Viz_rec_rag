@@ -59,7 +59,14 @@ class Retriever:
     medir ganho real no seu conjunto de perguntas.
     """
 
-    def __init__(self, k: int = 6, use_hyde: bool = False):
+    # k=9 nao e arbitrario. Os chunks sao ACHADOS, nao artigos, e um mesmo
+    # artigo rende varios achados. Medido nas 15 perguntas de avaliacao, o
+    # numero de trechos vindos de um unico artigo:
+    #   k=3  -> 60% dos trechos, 10/15 perguntas dominadas por um so artigo
+    #   k=6  -> 42% dos trechos,  7/15 perguntas dominadas
+    #   k=9  -> 38% dos trechos,  2/15 perguntas dominadas
+    # Abaixo de 9 o placar deixa de ser uma votacao entre estudos independentes.
+    def __init__(self, k: int = 9, use_hyde: bool = False):
         self.k = k
         self.use_hyde = use_hyde
         self.store = get_store()

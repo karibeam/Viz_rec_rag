@@ -1,7 +1,8 @@
 """Geracao da recomendacao final a partir dos trechos recuperados.
 
-Saida: recomendacao PRINCIPAL + ALTERNATIVA, cada uma com spec Vega-Lite
-validada e justificativa ancorada nas fontes recuperadas.
+Saida: UMA recomendacao de grafico, com spec Vega-Lite validada e justificativa
+ancorada nas fontes recuperadas. O ranking completo dos candidatos vai junto,
+no campo "placar", para auditoria -- mas so o 1o colocado e recomendado.
 
 Uso como CLI (util para depurar sem interface):
     python src/recommend.py "quero comparar vendas de 5 categorias"
@@ -34,14 +35,13 @@ deterministico, a partir dos mesmos trechos que voce recebeu, ponderando:
 compatibilidade com a tarefa analitica, significancia estatistica, evidencia
 experimental, numero de alternativas comparadas e, por ultimo, similaridade.
 
-  - "principal" DEVE ser o 1o colocado do placar.
-  - "alternativa" DEVE ser o 2o colocado do placar.
-  - Use exatamente os nomes de grafico do placar.
-  - Nao proponha um grafico que nao esteja no placar, nem reordene os colocados.
+  - "recomendacao" DEVE ser o 1o colocado do placar, e apenas ele.
+  - Use exatamente o nome de grafico do placar.
+  - Nao proponha outro grafico, nem sugira segundas opcoes.
 
-Seu trabalho e EXPLICAR essa decisao em linguagem simples e desenhar as specs
-Vega-Lite. Justifique cada escolha citando os trechos que votaram nela (a coluna
-"a favor" do placar diz quais foram).
+Seu trabalho e EXPLICAR essa decisao em linguagem simples e desenhar a spec
+Vega-Lite. Justifique citando os trechos que votaram nela (a coluna "a favor"
+do placar diz quais foram).
 
 Se o 1o colocado for claramente inadequado para a pergunta, nao o troque: diga
 o problema no campo "ressalva".
@@ -60,20 +60,14 @@ TRECHOS RECUPERADOS DA BASE DE CONHECIMENTO:
 Produza um objeto JSON com EXATAMENTE estas chaves:
 
 {{
-  "principal": {{
+  "recomendacao": {{
     "grafico": "copie o nome do 1o colocado do placar",
     "justificativa": "2 a 4 frases explicando por que este grafico venceu, citando os trechos que votaram nele (ex: 'segundo o trecho 2, ...'). Sem jargao.",
     "trechos_usados": [numeros dos trechos que sustentam esta escolha],
     "vegalite_spec": {{ spec Vega-Lite v5 completa e renderizavel }}
   }},
-  "alternativa": {{
-    "grafico": "copie o nome do 2o colocado do placar",
-    "justificativa": "2 a 3 frases dizendo em que situacao esta opcao seria preferivel a principal, citando os trechos.",
-    "trechos_usados": [numeros dos trechos],
-    "vegalite_spec": {{ spec Vega-Lite v5 completa e renderizavel }}
-  }},
   "ressalva": "string: escreva aqui se os trechos recuperados nao cobrirem bem a pergunta, ou \\"\\" se a base sustenta bem a resposta.",
-  "conflito": "string: se os trechos apontaram graficos diferentes, explique em 1-2 frases, para um leigo, o que separou o 1o do 2o colocado no placar. Deixe \\"\\" se so houve um candidato."
+  "conflito": "string: se outros graficos do placar ficaram perto do vencedor, explique em 1-2 frases, para um leigo, o que fez o 1o colocado vencer. Deixe \\"\\" se a escolha foi folgada ou se so houve um candidato."
 }}
 
 Regras para as specs Vega-Lite:
@@ -128,7 +122,7 @@ def _finalizar_opcao(opcao, hits):
     }
 
 
-def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None,
+def recomendar(pergunta: str, k: int = 9, use_hyde: bool = False, retriever=None,
                usar_placar: bool = True):
     r = retriever or Retriever(k=k, use_hyde=use_hyde)
 
@@ -153,8 +147,7 @@ def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None
         # nenhuma das tarefas analiticas cobertas pela base.
         return {
             "pergunta": pergunta,
-            "principal": None,
-            "alternativa": None,
+            "recomendacao": None,
             "fora_de_escopo": True,
             "ressalva": (
                 "Esta pergunta nao parece ser sobre qual grafico usar para uma analise. "
@@ -182,23 +175,15 @@ def recomendar(pergunta: str, k: int = 6, use_hyde: bool = False, retriever=None
     )
     obj = parse_json_object(config.text_of(resp))
 
-    principal = _finalizar_opcao(obj.get("principal"), hits)
-    alternativa = _finalizar_opcao(obj.get("alternativa"), hits)
-
-    todas = []
-    for opc in (principal, alternativa):
-        for f in (opc or {}).get("fontes", []):
-            if f not in todas:
-                todas.append(f)
+    recomendacao = _finalizar_opcao(obj.get("recomendacao"), hits)
 
     return {
         "pergunta": pergunta,
-        "principal": principal,
-        "alternativa": alternativa,
+        "recomendacao": recomendacao,
         "ressalva": str(obj.get("ressalva") or "").strip(),
         "conflito": str(obj.get("conflito") or "").strip(),
         "placar": placar,
-        "fontes": todas,
+        "fontes": (recomendacao or {}).get("fontes", []),
         "trechos": [
             {
                 "n": i,
@@ -221,13 +206,12 @@ def imprimir(res: dict):
         print(f"FORA DE ESCOPO: {res['ressalva']}")
         return
     print(f"\nPERGUNTA: {res['pergunta']}\n")
-    for rotulo, chave in (("PRINCIPAL", "principal"), ("ALTERNATIVA", "alternativa")):
-        opc = res.get(chave)
-        if not opc:
-            print(f"{rotulo}: (nao gerada)\n")
-            continue
+    opc = res.get("recomendacao")
+    if not opc:
+        print("RECOMENDACAO: (nao gerada)\n")
+    else:
         flag = "" if opc["spec_valida"] else "  [SPEC INVALIDA: " + "; ".join(opc["spec_erros"]) + "]"
-        print(f"{rotulo}: {opc['grafico']}{flag}")
+        print(f"RECOMENDACAO: {opc['grafico']}{flag}")
         print(f"  {opc['justificativa']}")
         print(f"  fontes: {', '.join(opc['fontes']) or '(nenhuma citada)'}\n")
     placar = res.get("placar")
@@ -249,7 +233,7 @@ def imprimir(res: dict):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("pergunta", nargs="+")
-    ap.add_argument("-k", type=int, default=6)
+    ap.add_argument("-k", type=int, default=9)
     ap.add_argument("--hyde", action="store_true", help="liga o HyDE (desligado por padrao)")
     ap.add_argument("--json", action="store_true", help="imprime o JSON completo")
     args = ap.parse_args()
