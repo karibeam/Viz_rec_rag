@@ -6,10 +6,17 @@ Rode cada uma e anote o resultado. O objetivo é medir **duas coisas separadas**
 2. **Geração** — a recomendação faz sentido e está ancorada nos trechos?
 
 Um erro de recuperação e um erro de geração pedem correções diferentes: o primeiro
-se ataca no `enrich.py`/chunking/HyDE, o segundo no prompt do `recommend.py`.
+se ataca na tradução da pergunta (`PROMPT_TRADUCAO`), o segundo no prompt de
+recomendação (`PROMPT_RECOMENDACAO`), ambos em `src/recomendar.py`.
 
 ```bash
-.venv/bin/python src/recommend.py "sua pergunta aqui"
+.venv/bin/python src/recomendar.py "sua pergunta aqui"
+```
+
+Para comparar a versão atual com a v1 (cards + placar) nestas perguntas:
+
+```bash
+.venv/bin/python tests/comparar_v1_v2.py
 ```
 
 | # | Pergunta | Esperado (aprox.) | Recuperação OK? | Recomendação OK? |
@@ -32,8 +39,8 @@ se ataca no `enrich.py`/chunking/HyDE, o segundo no prompt do `recommend.py`.
 
 ## Perguntas-armadilha (fora do escopo da base)
 
-O sistema **deve** preencher o campo `ressalva` nestes casos, em vez de inventar.
-Se responder com confiança total, o prompt do `recommend.py` está permitindo alucinação.
+O sistema **deve** recusar estas perguntas: a tradução classifica a tarefa como
+`nenhuma` e nenhuma busca é feita.
 
 | # | Pergunta | Comportamento esperado |
 |---|---|---|
@@ -42,16 +49,15 @@ Se responder com confiança total, o prompt do `recommend.py` está permitindo a
 | 18 | Qual a cor da capa do meu relatório? | ressalva — nada a ver com escolha de gráfico |
 
 > A pergunta "como faço um mapa coroplético?" **não** é armadilha: a base cobre
-> mapas e cartogramas (45 cards, ex. `Nusrat2018evaluating`, `Golebiowska2020rainbow`).
+> mapas e cartogramas (ex. `Nusrat2018evaluating`, `Golebiowska2020rainbow`).
 > Uma resposta fundamentada ali é comportamento correto, não alucinação.
 
 ## O que ajustar conforme o resultado
 
-| Sintoma | Onde mexer |
+| Sintoma | Onde mexer (`src/recomendar.py`) |
 |---|---|
-| Similaridade alta mas trechos irrelevantes | prompt do `enrich.py` — os cards estão genéricos demais |
-| Similaridade baixa em todas as perguntas (< 0.3) | ligar HyDE; conferir se o modelo de embedding é o multilíngue |
-| Trecho certo aparece em 5º/6º lugar | aumentar `k`, ou adicionar re-ranking |
-| Recomendação boa mas sem citar fonte | prompt do `recommend.py`, campo `trechos_usados` |
-| Recomendação contradiz o trecho citado | baixar temperatura; reforçar a regra central no `SYSTEM` |
-| Spec Vega-Lite inválida com frequência | reforçar as regras de spec no `USER_TMPL` |
+| A tarefa identificada está errada | `PROMPT_TRADUCAO` — descrições das 10 tarefas |
+| Tarefa certa, mas achados de outras tarefas | `consulta_tecnica` — formato da consulta |
+| Pergunta legítima recusada (tarefa `nenhuma`) | `PROMPT_TRADUCAO` — descrição de `nenhuma` |
+| Recomendação contradiz o achado citado | `PROMPT_RECOMENDACAO` |
+| Spec Vega-Lite inválida com frequência | `PROMPT_RECOMENDACAO` — regras da spec |

@@ -1,16 +1,16 @@
-"""Configuracao central: provedor de LLM/embeddings e caminhos do projeto."""
+"""Configuracao: caminhos do projeto, chave de API e modelos (Gemini ou OpenAI)."""
 
 import os
+import re
+import time
 from pathlib import Path
 
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
-RAW_DIR = ROOT / "data" / "raw"
-PROCESSED_DIR = ROOT / "data" / "processed"
-CARDS_PATH = PROCESSED_DIR / "cards.jsonl"
-CHROMA_DIR = ROOT / "data" / "chroma"
-COLLECTION = "graphical_perception"
+RAW_DIR = ROOT / "data" / "raw"        # os 59 JSONs da base, intactos
+CHROMA_DIR = ROOT / "data" / "chroma"  # o banco vetorial
+COLLECTION = "achados"
 
 load_dotenv(ROOT / ".env")
 
@@ -22,101 +22,32 @@ def provider() -> str:
 def _require(var: str) -> str:
     val = os.getenv(var, "").strip()
     if not val:
-        raise RuntimeError(
-            f"{var} nao definida. Copie .env.example para .env e preencha a chave."
-        )
+        raise RuntimeError(f"{var} nao definida. Copie .env.example para .env e preencha a chave.")
     return val
 
 
-def text_of(resposta) -> str:
-    """Extrai o texto de uma resposta de chat.
-
-    Modelos mais novos do Gemini devolvem `content` como lista de partes
-    (texto + assinaturas de raciocinio) em vez de string. Normalizar aqui evita
-    que cada modulo tenha que lidar com os dois formatos.
-    """
-    content = getattr(resposta, "content", resposta)
-    if isinstance(content, str):
-        return content
-    if isinstance(content, list):
-        partes = []
-        for parte in content:
-            if isinstance(parte, str):
-                partes.append(parte)
-            elif isinstance(parte, dict) and parte.get("type") == "text":
-                partes.append(str(parte.get("text", "")))
-        return "".join(partes)
-    return str(content)
-
-
-def invoke_with_retry(llm, entrada, tentativas: int = 4, espera_padrao: int = 30):
-    """Chama o modelo tolerando falhas transitorias do provedor.
-
-    Trata dois casos, ambos observados em uso real:
-
-    - 429 RESOURCE_EXHAUSTED: limite por minuto do free tier. A API informa
-      quanto esperar; obedecemos.
-    - 503 UNAVAILABLE / overloaded: o modelo esta sobrecarregado do lado do
-      provedor. Nao vem com tempo sugerido, entao usamos recuo exponencial.
-
-    Cota DIARIA esgotada ("PerDay") NAO e recuperavel por espera -- a excecao
-    sobe na hora, em vez de prender o processo em tentativas inuteis.
-    """
-    import re
-    import time
-
-    for tentativa in range(1, tentativas + 1):
-        try:
-            return llm.invoke(entrada)
-        except Exception as exc:
-            msg = str(exc)
-            cota = "RESOURCE_EXHAUSTED" in msg or "429" in msg
-            sobrecarga = "UNAVAILABLE" in msg or "503" in msg or "overloaded" in msg.lower()
-            diario = "PerDay" in msg
-            if (not cota and not sobrecarga) or diario or tentativa == tentativas:
-                raise
-            m = re.search(r"retry in ([\d.]+)s", msg, re.IGNORECASE)
-            if m:
-                espera = int(float(m.group(1))) + 2
-            else:
-                espera = espera_padrao * (2 ** (tentativa - 1))  # 30s, 60s, 120s
-            time.sleep(espera)
-    raise RuntimeError("inalcancavel")
-
-
-def get_chat(temperature: float = 0.0, model: str = None, timeout: int = 180):
-    """Modelo de chat do provedor configurado.
-
-    `model` sobrescreve o default do .env. Serve para usar um modelo mais leve
-    no enriquecimento em massa (dezenas de chamadas) e um melhor no runtime
-    (uma chamada por pergunta do usuario).
-
-    `timeout` evita que uma chamada travada segure o pipeline indefinidamente.
-    """
+def get_chat():
+    """Modelo de chat. Temperatura 0 para a mesma pergunta dar a mesma resposta."""
     if provider() == "openai":
         from langchain_openai import ChatOpenAI
 
         return ChatOpenAI(
-            model=model or os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini"),
-            temperature=temperature,
+            model=os.getenv("OPENAI_CHAT_MODEL", "gpt-4o-mini"),
+            temperature=0,
             api_key=_require("OPENAI_API_KEY"),
-            timeout=timeout,
-            max_retries=3,
         )
 
     from langchain_google_genai import ChatGoogleGenerativeAI
 
     return ChatGoogleGenerativeAI(
-        model=model or os.getenv("GEMINI_CHAT_MODEL", "gemini-3.5-flash-lite"),
-        temperature=temperature,
+        model=os.getenv("GEMINI_CHAT_MODEL", "gemini-3.5-flash-lite"),
+        temperature=0,
         google_api_key=_require("GOOGLE_API_KEY"),
-        timeout=timeout,
-        max_retries=3,
     )
 
 
 def get_embeddings():
-    """Modelo de embeddings do provedor configurado (ambos sao multilingues)."""
+    """Modelo de embeddings (os dois provedores sao multilingues)."""
     if provider() == "openai":
         from langchain_openai import OpenAIEmbeddings
 
@@ -131,3 +62,34 @@ def get_embeddings():
         model=os.getenv("GEMINI_EMBED_MODEL", "models/gemini-embedding-001"),
         google_api_key=_require("GOOGLE_API_KEY"),
     )
+
+
+def texto(resposta) -> str:
+    """Texto de uma resposta do LLM (alguns modelos devolvem uma lista de partes)."""
+    content = getattr(resposta, "content", resposta)
+    if isinstance(content, list):
+        return "".join(
+            p if isinstance(p, str) else str(p.get("text", ""))
+            for p in content
+            if isinstance(p, str) or (isinstance(p, dict) and p.get("type") == "text")
+        )
+    return str(content)
+
+
+def com_retentativa(funcao, tentativas: int = 4):
+    """Executa `funcao()` de novo quando a API esta sobrecarregada ou no limite por minuto.
+
+    O plano gratuito limita chamadas por minuto (erro 429) e as vezes o modelo
+    fica sobrecarregado (erro 503). Nos dois casos basta esperar. Ja a cota
+    DIARIA esgotada nao se resolve esperando, entao o erro sobe na hora.
+    """
+    for tentativa in range(1, tentativas + 1):
+        try:
+            return funcao()
+        except Exception as exc:
+            msg = str(exc)
+            temporario = any(s in msg for s in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE"))
+            if not temporario or "PerDay" in msg or tentativa == tentativas:
+                raise
+            sugerido = re.search(r"retry in ([\d.]+)s", msg, re.IGNORECASE)
+            time.sleep(float(sugerido.group(1)) + 2 if sugerido else 30 * tentativa)

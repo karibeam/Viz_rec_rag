@@ -1,0 +1,74 @@
+[
+ {
+  "pergunta": "Quero comparar as vendas de 5 categorias de produto",
+  "v1": "gráfico de barras"
+ },
+ {
+  "pergunta": "Como mostrar a evolução da temperatura ao longo de 12 meses?",
+  "v1": "Gráfico de linhas sobrepostas (escala logarítmica)"
+ },
+ {
+  "pergunta": "Preciso ver se há relação entre horas de estudo e nota da prova",
+  "v1": "grafico de dispersao"
+ },
+ {
+  "pergunta": "Qual gráfico usar para mostrar a participação de cada região no total?",
+  "v1": "gráfico de rosca"
+ },
+ {
+  "pergunta": "Quero identificar valores fora do padrão numa lista de preços",
+  "v1": "gráfico de dispersão"
+ },
+ {
+  "pergunta": "Tenho 3 lojas e 12 meses de faturamento, como mostro tudo junto?",
+  "v1": "fatias circulares"
+ },
+ {
+  "pergunta": "Como comparar duas fatias de um gráfico de pizza?",
+  "v1": "gráfico de rosca"
+ },
+ {
+  "pergunta": "Quero mostrar a distribuição das idades dos meus clientes",
+  "v1": "gráfico de dispersão"
+ },
+ {
+  "pergunta": "Preciso destacar qual vendedor teve o maior resultado",
+  "v1": "grafico de dispersao"
+ },
+ {
+  "pergunta": "Como mostro a média de vendas por trimestre?",
+  "v1": "gráfico de dispersão"
+ },
+ {
+  "pergunta": "Tenho dados de temperatura por hora e por dia da semana",
+  "v1": "gráfico de dispersão"
+ },
+ {
+  "pergunta": "Quero comparar o desempenho de 20 produtos diferentes",
+  "v1": "grafico de diferencas"
+ },
+ {
+  "pergunta": "Como agrupo clientes parecidos visualmente?",
+  "v1": "gráfico de dispersao"
+ },
+ {
+  "pergunta": "Qual a melhor forma de mostrar percentuais que somam 100%?",
+  "v1": "gráfico de pizza com quartis"
+ },
+ {
+  "pergunta": "Preciso ler o valor exato de cada mês no gráfico",
+  "v1": "gráfico de bolhas"
+ },
+ {
+  "pergunta": "Qual biblioteca JavaScript devo usar para meus gráficos?",
+  "v1": "(recusada)"
+ },
+ {
+  "pergunta": "Como mostro uma rede de conexões entre pessoas?",
+  "v1": "gráfico de dispersão"
+ },
+ {
+  "pergunta": "Qual a cor da capa do meu relatório?",
+  "v1": "(recusada)"
+ }
+]
