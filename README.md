@@ -48,18 +48,44 @@ flowchart TD
 
     subgraph ON["ETAPA ONLINE · a cada pergunta · src/recomendar.py"]
         P["pergunta do usuário"] --> T["1 · TRADUZIR<br/>LLM classifica: tarefa + tipos de dado"]
-        T -->|"tarefa = nenhuma"| X["recusa<br/>fora do escopo"]
+        T -->|"não é sobre dados"| X["recusa<br/>fora do escopo"]
         T --> Q["consulta técnica<br/>mesmo formato dos documentos"]
         Q --> S["2 · BUSCAR<br/>similaridade de cosseno · top 9"]
         E --> S
         S --> G["3 · GERAR<br/>LLM lê os 9 achados e recomenda UM gráfico"]
         G --> V["valida a spec Vega-Lite"]
-        V --> R["gráfico + justificativa + fontes"]
+        V --> R["gráfico + justificativa + artigos citados"]
     end
 ```
 
 **Custo por pergunta:** 2 chamadas de LLM (traduzir + gerar) e 1 embedding.
 Pergunta fora do escopo: 1 chamada de LLM, sem busca.
+
+### Quando o sistema recusa
+
+A tradução decide duas coisas, nesta ordem:
+
+1. **A pergunta é sobre mostrar ou analisar dados?** Se não for (ex.: "qual a cor da
+   capa do meu relatório?", "qual biblioteca JavaScript usar?"), o sistema recusa
+   sem buscar nada.
+2. **Se for, qual das 10 tarefas da base é a mais próxima?** O LLM escolhe sempre a
+   mais próxima, mesmo sem encaixe perfeito. Uma pergunta sobre dados nunca é
+   recusada só porque a base não tem uma tarefa exata para ela.
+
+## Interface
+
+A tela segue as heurísticas de usabilidade de Nielsen, sem enfeites:
+
+- **linguagem do usuário:** a tarefa e os tipos de dado aparecem traduzidos
+  ("ver como os valores se distribuem", "números"), nunca o termo técnico;
+- **reconhecer em vez de lembrar:** exemplos clicáveis logo abaixo da pergunta;
+- **minimalismo:** a recomendação fica num cartão (gráfico de exemplo,
+  justificativa, dica); os detalhes técnicos ficam recolhidos em
+  "Como o sistema chegou a essa recomendação";
+- **fontes verificáveis:** cada achado mostra autor, ano e título do artigo, com
+  link de busca no Google Scholar;
+- **erros compreensíveis:** mensagens em português (ex.: limite de uso da API),
+  com o erro técnico recolhido.
 
 ## Arquivos
 
@@ -68,8 +94,10 @@ src/
   config.py         chave de API, modelos, nova tentativa em caso de erro temporário
   indexar.py        etapa offline: base → documentos → embeddings → Chroma
   recomendar.py     etapa online: traduzir → buscar → gerar
-  validate_spec.py  confere e conserta a spec Vega-Lite
+  validate_spec.py  confere e conserta a spec Vega-Lite (tipos faltantes;
+                    categorias ordenadas, como meses, mantêm a ordem dos dados)
 app.py              interface (Streamlit)
+.streamlit/         tema da interface (cor principal, barra de ferramentas mínima)
 data/raw/           os 59 JSONs da base, intactos
 tests/
   teste_offline.py      testa o pipeline inteiro sem gastar API
@@ -106,6 +134,19 @@ Ou pelo terminal:
 ```bash
 .venv/bin/python src/recomendar.py "quero comparar as vendas de 5 categorias"
 ```
+
+## Limitações conhecidas
+
+- **Séries temporais.** A base não tem o tipo de dado "temporal" nem uma tarefa de
+  tendência, e os estudos com séries temporais comparam variações de gráficos de
+  linhas entre si, não linhas contra barras. Por isso, perguntas como "evolução
+  da temperatura em 12 meses" às vezes recebem barras. Estudos que comparam linhas
+  e barras (ex.: Zacks & Tversky, 1999) foram excluídos da revisão de Zeng et al.;
+  estendê-la com eles é o próximo passo planejado.
+- **Variação do LLM.** A mesma pergunta pode receber recomendações diferentes em
+  execuções diferentes, principalmente quando a base cobre mal o caso.
+- **Referências.** Os JSONs da base trazem só o título; autor e ano vêm do nome do
+  arquivo (`Saket2018task.json` → "Saket (2018)"), sem os coautores.
 
 ## Versão anterior (v1)
 
