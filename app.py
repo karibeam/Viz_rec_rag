@@ -5,12 +5,19 @@
 
 import sys
 from pathlib import Path
+from urllib.parse import quote_plus
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 import streamlit as st
 
 from recomendar import recomendar
+
+def link_artigo(referencia):
+    """Referencia com link de busca do titulo no Google Scholar."""
+    titulo = referencia.split(". ", 1)[-1]
+    return f"[{referencia}](https://scholar.google.com/scholar?q={quote_plus(titulo)})"
+
 
 st.set_page_config(page_title="Recomendador de Visualizacoes", page_icon="📊", layout="wide")
 
@@ -63,13 +70,16 @@ if st.button("Recomendar", type="primary", disabled=not (pergunta or "").strip()
     else:
         st.warning("Não foi possível desenhar o gráfico de exemplo.")
 
-    if r["fontes"]:
-        st.caption("Fontes: " + " · ".join(r["fontes"]))
+    if r["achados_usados"]:
+        st.markdown("**Estudos que sustentam a recomendação**")
+        for n in r["achados_usados"]:
+            st.markdown(f"- **[{n}]** {link_artigo(r['achados'][n - 1]['artigo'])}")
 
     with st.expander(f"Achados recuperados da base ({len(r['achados'])}) — texto original, sem reescrita"):
         st.caption(f"Consulta usada na busca:\n\n{r['consulta']}")
         for a in r["achados"]:
-            st.markdown(f"**[{a['n']}]** `{a['fonte']}` — similaridade {a['similaridade']}")
+            st.markdown(f"**[{a['n']}]** {link_artigo(a['artigo'])}  \n"
+                        f"similaridade {a['similaridade']} · `{a['fonte']}`")
             st.text(a["texto"])
 
     with st.expander("Spec Vega-Lite"):

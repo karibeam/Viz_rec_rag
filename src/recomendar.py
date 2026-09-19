@@ -11,6 +11,7 @@ Passo 3. GERAR: o LLM le os achados e recomenda UM grafico, citando as fontes.
 
 import difflib
 import json
+import re
 import sys
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
@@ -113,6 +114,18 @@ Responda so com JSON:
 }}"""
 
 
+def referencia(fonte):
+    """'Aigner2011bertin.json#...' -> 'Aigner (2011). Bertin was Right: ...'
+
+    Autor e ano vem do nome do arquivo; o titulo, do proprio JSON da base.
+    Nao precisa reindexar: e so para exibir.
+    """
+    arquivo = fonte.split("#")[0]
+    autor, ano = re.match(r"([A-Za-z-]+?)(\d{4})", arquivo).groups()
+    titulo = json.loads((config.RAW_DIR / arquivo).read_text(encoding="utf-8")).get("Title", "")
+    return f"{autor} ({ano}). {titulo}"
+
+
 def formatar_achados(resultados):
     return "\n\n".join(
         f"[ACHADO {i}] (fonte: {doc.metadata['fonte']})\n{doc.page_content}"
@@ -159,8 +172,10 @@ def recomendar(pergunta, k=K, llm=None, banco=None):
         "vegalite_spec": spec,
         "spec_valida": spec_ok,
         "fontes": [resultados[n - 1][0].metadata["fonte"] for n in usados],
+        "achados_usados": usados,
         "achados": [
-            {"n": i, "fonte": d.metadata["fonte"], "similaridade": round(s, 3), "texto": d.page_content}
+            {"n": i, "fonte": d.metadata["fonte"], "artigo": referencia(d.metadata["fonte"]),
+             "similaridade": round(s, 3), "texto": d.page_content}
             for i, (d, s) in enumerate(resultados, 1)
         ],
     }
