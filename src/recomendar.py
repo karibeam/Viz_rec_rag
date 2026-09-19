@@ -29,11 +29,14 @@ de uma base de estudos sobre percepcao de graficos.
 
 Pergunta: "{pergunta}"
 
-Primeiro decida: a pessoa quer mostrar ou analisar um CONJUNTO DE DADOS num
-grafico? Se nao (ex.: escolher software, cores ou layout de um documento,
-duvidas gerais), a tarefa e "nenhuma".
+DECISAO 1 -- a pergunta e sobre mostrar ou analisar DADOS num grafico?
+Se NAO (ex.: escolher software, cores ou layout de um documento, duvidas
+gerais), responda com tarefa "nenhuma" e pare aqui.
 
-Se sim, escolha a tarefa analitica (exatamente um destes valores):
+DECISAO 2 -- se SIM, escolha SEMPRE a tarefa mais proxima da lista abaixo,
+mesmo que nenhuma encaixe perfeitamente (ex.: "ver a evolucao ao longo do
+tempo" nao tem tarefa propria: escolha a mais proxima). Nunca use "nenhuma"
+para uma pergunta sobre dados.
 - aggregate: estimar media, total ou valor agregado
 - characterize-distribution: ver como os valores se distribuem
 - cluster: identificar grupos de itens parecidos
@@ -44,7 +47,6 @@ Se sim, escolha a tarefa analitica (exatamente um destes valores):
 - find-extremum: achar o maior ou o menor valor
 - retrieve-value: ler o valor exato de um item
 - sort: ordenar ou comparar valores entre categorias
-- nenhuma: a pergunta NAO e sobre escolher um grafico para analisar dados
 
 Tipos de dado envolvidos, entre: quantitative (numeros), nominal (categorias
 sem ordem), ordinal (categorias com ordem, inclusive tempo: meses, anos, dias).
