@@ -56,6 +56,12 @@ def repair(spec):
     for canal, definicao in enc.items():
         if not isinstance(definicao, dict):
             continue
+        # Categorias ordenadas (meses, faixas) mantem a ordem em que o LLM
+        # escreveu os dados; sem isso o Vega-Lite ordena alfabeticamente
+        # (Jan, Jul, Mai, Mar...).
+        if definicao.get("type") == "ordinal" and "sort" not in definicao:
+            definicao["sort"] = None
+            corrigidos.append(f"{canal}: ordem dos dados")
         if "type" in definicao or "value" in definicao:
             continue
         campo = definicao.get("field")

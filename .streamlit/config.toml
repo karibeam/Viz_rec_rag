@@ -1,0 +1,6 @@
+# Aparencia da interface. O tema claro/escuro segue o sistema do usuario.
+[theme]
+primaryColor = "#2563EB"
+
+[client]
+toolbarMode = "minimal"  # esconde o botao "Deploy" e menus de desenvolvedor

@@ -107,7 +107,7 @@ Recomende UM unico grafico, com base apenas nesses achados:
 Responda so com JSON:
 {{
   "grafico": "nome popular do grafico, em portugues",
-  "justificativa": "2 a 4 frases simples, citando os achados pelo numero (ex: 'o achado 2 mostrou que...')",
+  "justificativa": "2 a 4 frases simples, citando os achados pelo numero (ex: 'o achado 2 mostrou que...'); nao use codigos de design como E-1 ou T-2, diga o nome do grafico",
   "achados_usados": [numeros dos achados que sustentam a escolha],
   "vegalite_spec": {{ spec Vega-Lite v5 completa, com "$schema", "title", "data": {{"values": [4 a 8 linhas de exemplo coerentes com a pergunta]}}, "mark" e "encoding" com "type" em cada canal }},
   "ressalva": "limitacao importante, ou \\"\\" se nao houver"
